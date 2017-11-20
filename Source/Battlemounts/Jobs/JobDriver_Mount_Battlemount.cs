@@ -8,18 +8,48 @@ using Verse.AI;
 
 namespace Battlemounts.Jobs
 {
-    public class JobDriver_Mount_Battlemount : JobDriver_InteractAnimal
+    public class JobDriver_Mount_Battlemount : JobDriver
     {
-        protected override IEnumerable<Toil> MakeNewToils()
+        public override bool TryMakePreToilReservations()
         {
-            Log.Message("Jobdriver InteractAnimal MakeNewToils() called");
-            return base.MakeNewToils();
+            return true;
         }
 
-        protected override Toil FinalInteractToil()
+        protected override IEnumerable<Toil> MakeNewToils()
         {
-            Log.Message("whoohoo mounting!");
-            return new Toil();
+
+            this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
+            this.FailOnDowned(TargetIndex.A);
+            this.FailOnNotCasualInterruptible(TargetIndex.A);
+
+
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
+            yield return Toils_Interpersonal.WaitToBeAbleToInteract(this.pawn);
+            yield return TalkToAnimal(TargetIndex.A);
         }
+
+        private static Toil TalkToAnimal(TargetIndex tameeInd)
+        {
+            Toil toil = new Toil();
+            toil.initAction = delegate
+            {
+                Log.Message("start talk to animal!");
+
+                Pawn actor = toil.GetActor();
+                Pawn recipient = (Pawn)((Thing)actor.CurJob.GetTarget(tameeInd));
+                actor.interactions.TryInteractWith(recipient, InteractionDefOf.AnimalChat);
+            };
+            toil.defaultCompleteMode = ToilCompleteMode.Delay;
+            toil.defaultDuration = 150;
+            toil.AddFinishAction(delegate {
+                Log.Message("talked to animal!");
+                Pawn actor = toil.GetActor();
+                var extendedDataStore = Battlemounts.Instance.GetExtendedDataStorage();
+                var pawnData = extendedDataStore.GetExtendedDataFor(actor);
+                pawnData.mount = (Pawn)((Thing)actor.CurJob.GetTarget(tameeInd));
+            });
+            return toil;
+        }
+        
     }
 }

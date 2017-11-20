@@ -26,9 +26,14 @@ namespace Battlemounts.Harmony
                 Action action = delegate
                 {
 
-                    Job job = new Job(BM_JobDefOf.Mount_Battlemount, animal);
-                    job.count = 1;
-                    pawn.jobs.TryTakeOrderedJob(job);
+                    Job jobRider = new Job(BM_JobDefOf.Mount_Battlemount, animal);
+                    jobRider.count = 1;
+                    pawn.jobs.TryTakeOrderedJob(jobRider);
+
+                    Job jobAnimal = new Job(BM_JobDefOf.Mounted_Battlemount, pawn);
+                    jobAnimal.count = 1;
+                    animal.jobs.TryTakeOrderedJob(jobAnimal);
+
                 };
 
                 opts.Add(new FloatMenuOption("Use as battlemount", action, MenuOptionPriority.Default));

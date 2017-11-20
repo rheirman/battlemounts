@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<JobDefs>
+<Defs>
   <JobDef>
     <defName>Mount_Battlemount</defName>
     <driverClass>Battlemounts.Jobs.JobDriver_Mount_Battlemount</driverClass>
     <reportString>Mounting</reportString>
     <casualInterruptible>false</casualInterruptible>
   </JobDef>
-</JobDefs>
+  <JobDef>
+    <defName>Mounted_Battlemount</defName>
+    <driverClass>Battlemounts.Jobs.JobDriver_Mounted_Battlemount</driverClass>
+    <reportString>Mounted</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+</Defs>

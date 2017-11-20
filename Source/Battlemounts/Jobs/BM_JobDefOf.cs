@@ -11,6 +11,8 @@ namespace Battlemounts.Jobs
     public static class BM_JobDefOf
     {
         public static JobDef Mount_Battlemount;
+        public static JobDef Mounted_Battlemount;
+
     }
 
 }
