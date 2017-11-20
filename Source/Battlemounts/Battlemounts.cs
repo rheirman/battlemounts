@@ -5,6 +5,7 @@ using System.Text;
 using HugsLib;
 using HugsLib.Utils;
 using Battlemounts.Storage;
+using Battlemounts.Utilities;
 
 namespace Battlemounts
 {
@@ -21,6 +22,13 @@ namespace Battlemounts
         {
             Instance = this;
         }
+        public override void DefsLoaded()
+        {
+            DefUtility defUtility = new DefUtility();
+            defUtility.getMountableAnimals();
+        }
+
+
         public override void WorldLoaded()
         {
             base.WorldLoaded();
