@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Battlemounts.Storage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,32 +17,51 @@ namespace Battlemounts.Jobs
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
+            yield return waitForRider();
             yield return delegateMovement();
         }
         public override bool TryMakePreToilReservations()
         {
             return true;
         }
-        private Toil delegateMovement()
+
+        private void cancelJobIfNeeded(ExtendedPawnData riderData)
         {
+            if (Rider.Downed || Rider.Dead)
+            {
+                ReadyForNextToil();
+                return;
+            }
+            if (riderData.mount == null)
+            {
+                ReadyForNextToil();
+            }
+
+        }
+
+        private Toil waitForRider()
+        {
+            ExtendedPawnData riderData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
 
             Toil toil = new Toil();
+
             toil.defaultCompleteMode = ToilCompleteMode.Never;
 
-            /*
-            this.AddEndCondition(delegate
+            toil.tickAction = delegate
             {
-                if (pawn.Position.Equals(Animal.Position))
+                if (riderData.mount != null)
                 {
-                    //return JobCondition.Succeeded;
-                    return JobCondition.Ongoing;
+                    ReadyForNextToil();
                 }
-                else
-                {
-                    return JobCondition.Ongoing;
-                }
-            });
-            */
+            };
+            return toil;
+        }
+
+        private Toil delegateMovement()
+        {
+            ExtendedPawnData riderData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
+            Toil toil = new Toil();
+            toil.defaultCompleteMode = ToilCompleteMode.Never;
 
             toil.initAction = delegate
             {
@@ -56,12 +76,22 @@ namespace Battlemounts.Jobs
             //toil.tickAction();
             toil.tickAction  = delegate
             {
+                cancelJobIfNeeded(riderData);
+
                 Log.Message("tickAction called");
 
                 pawn.Position = Rider.Position;
                 pawn.Rotation = Rider.Rotation;
+
+
                 //pawn.Drawer.rotator.PawnRotatorTick();
             };
+
+            toil.AddFinishAction(delegate {
+                Log.Message("finishAction called!");
+                riderData.mount = null;
+                pawn.Drawer.tweener = new PawnTweener(pawn);
+            });
 
             //toil.FailOnDespawnedOrNull(TargetIndex.A);
             return toil;
@@ -73,6 +103,7 @@ namespace Battlemounts.Jobs
             Scribe_Values.Look<bool>(ref this.isMounted, "isMounted", false, false);
             //Scribe_Values.Look<Job>(ref job, "job", null, false);
         }
+
     }
 
 

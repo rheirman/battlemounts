@@ -22,21 +22,38 @@ namespace Battlemounts.Harmony
                 {
                     return;
                 }
-                Pawn animal = (Pawn) current.Thing;
-                Action action = delegate
+
+                var pawnData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
+                Pawn animal = (Pawn)current.Thing;
+
+                if (pawnData.mount == null)
                 {
 
-                    Job jobRider = new Job(BM_JobDefOf.Mount_Battlemount, animal);
-                    jobRider.count = 1;
-                    pawn.jobs.TryTakeOrderedJob(jobRider);
+                    Action action = delegate
+                    {
 
-                    Job jobAnimal = new Job(BM_JobDefOf.Mounted_Battlemount, pawn);
-                    jobAnimal.count = 1;
-                    animal.jobs.TryTakeOrderedJob(jobAnimal);
+                        Job jobRider = new Job(BM_JobDefOf.Mount_Battlemount, animal);
+                        jobRider.count = 1;
+                        pawn.jobs.TryTakeOrderedJob(jobRider);
 
-                };
+                        Job jobAnimal = new Job(BM_JobDefOf.Mounted_Battlemount, pawn);
+                        jobAnimal.count = 1;
+                        animal.jobs.TryTakeOrderedJob(jobAnimal);
+                    };
+                    opts.Add(new FloatMenuOption("Mount", action, MenuOptionPriority.Default));
 
-                opts.Add(new FloatMenuOption("Use as battlemount", action, MenuOptionPriority.Default));
+                }
+                else
+                {
+                    Action action = delegate
+                    {
+                        pawnData.mount = null;
+                    };
+                    opts.Add(new FloatMenuOption("Dismount", action, MenuOptionPriority.Default));
+
+                }
+
+
             }
         }
     }

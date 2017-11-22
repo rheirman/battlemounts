@@ -55,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Battlemounts.cs" />
+    <Compile Include="Harmony\Jobdriver_Cleanup.cs" />
+    <Compile Include="Harmony\JobGiver_FleeImmediateDanger_TryGiveJob.cs" />
+    <Compile Include="Harmony\Pawn_HealthTracker.cs" />
     <Compile Include="Harmony\FloatMenuMakerMap.cs" />
     <Compile Include="Harmony\Pawn_DrawAt.cs" />
     <Compile Include="Jobs\BM_JobDefOf.cs" />

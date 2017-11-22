@@ -33,8 +33,6 @@ namespace Battlemounts.Jobs
             Toil toil = new Toil();
             toil.initAction = delegate
             {
-                Log.Message("start talk to animal!");
-
                 Pawn actor = toil.GetActor();
                 Pawn recipient = (Pawn)((Thing)actor.CurJob.GetTarget(tameeInd));
                 actor.interactions.TryInteractWith(recipient, InteractionDefOf.AnimalChat);
@@ -42,7 +40,6 @@ namespace Battlemounts.Jobs
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
             toil.defaultDuration = 150;
             toil.AddFinishAction(delegate {
-                Log.Message("talked to animal!");
                 Pawn actor = toil.GetActor();
                 var extendedDataStore = Battlemounts.Instance.GetExtendedDataStorage();
                 var pawnData = extendedDataStore.GetExtendedDataFor(actor);
