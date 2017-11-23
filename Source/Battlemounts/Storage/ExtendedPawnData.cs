@@ -14,7 +14,7 @@ namespace Battlemounts.Storage
 
         public void ExposeData()
         {
-            Scribe_Values.Look(ref mount, "mount", null);
+            Scribe_References.Look(ref mount, "mount", false);
             Scribe_Values.Look(ref drawOffset, "drawOffset", 0);
 
         }

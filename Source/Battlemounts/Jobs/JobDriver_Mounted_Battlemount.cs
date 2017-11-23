@@ -47,12 +47,15 @@ namespace Battlemounts.Jobs
 
             toil.defaultCompleteMode = ToilCompleteMode.Never;
 
+            toil.FailOn(() => Rider.CurJob.def != BM_JobDefOf.Mount_Battlemount && riderData.mount == null);
+
             toil.tickAction = delegate
             {
                 if (riderData.mount != null)
                 {
                     ReadyForNextToil();
                 }
+                
             };
             return toil;
         }
@@ -65,35 +68,23 @@ namespace Battlemounts.Jobs
 
             toil.initAction = delegate
             {
-                Log.Message("initAction called");
                 pawn.Drawer.tweener = Rider.Drawer.tweener;
                 pawn.Position = Rider.Position;
 
-                //pawn.Drawer.rotator = new PawnRotator(pawn);
-                //pawn.Drawer.rotator.FaceCell(Rider.pather.nextCell);
-
             };
-            //toil.tickAction();
             toil.tickAction  = delegate
             {
                 cancelJobIfNeeded(riderData);
-
-                Log.Message("tickAction called");
-
                 pawn.Position = Rider.Position;
                 pawn.Rotation = Rider.Rotation;
 
-
-                //pawn.Drawer.rotator.PawnRotatorTick();
             };
 
             toil.AddFinishAction(delegate {
-                Log.Message("finishAction called!");
                 riderData.mount = null;
                 pawn.Drawer.tweener = new PawnTweener(pawn);
             });
 
-            //toil.FailOnDespawnedOrNull(TargetIndex.A);
             return toil;
 
         }

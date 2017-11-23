@@ -19,9 +19,9 @@ namespace Battlemounts.Harmony
         {
             var extendedDataStore = Battlemounts.Instance.GetExtendedDataStorage();
             var pawnData = extendedDataStore.GetExtendedDataFor(__instance);
-
             if (pawnData.mount != null)
             {
+                drawLoc = pawnData.mount.Drawer.DrawPos;
                 var mountData = extendedDataStore.GetExtendedDataFor(pawnData.mount);
 
                 //TODO: move this to a more appropriate place

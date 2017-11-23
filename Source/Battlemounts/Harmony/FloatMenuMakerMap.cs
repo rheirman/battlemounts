@@ -25,9 +25,24 @@ namespace Battlemounts.Harmony
 
                 var pawnData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
                 Pawn animal = (Pawn)current.Thing;
+                Log.Message("Animal curjob: " + animal.CurJob.def.defName);
+
+                
 
                 if (pawnData.mount == null)
                 {
+                    if (!(animal.CurJob.def == JobDefOf.Wait ||
+                        animal.CurJob.def == JobDefOf.Goto ||
+                        animal.CurJob.def == JobDefOf.GotoWander ||
+                        animal.CurJob.def == JobDefOf.WaitWander ||
+                        animal.CurJob.def == JobDefOf.WaitMaintainPosture ||
+                        animal.CurJob.def == JobDefOf.WaitSafeTemperature ||
+                        animal.CurJob.def == JobDefOf.GotoSafeTemperature ||
+                        animal.CurJob.def == JobDefOf.LayDown))
+                    {
+                        opts.Add(new FloatMenuOption("Cannot mount, animal busy", null, MenuOptionPriority.Default));
+                        return;
+                    }
 
                     Action action = delegate
                     {
@@ -35,7 +50,8 @@ namespace Battlemounts.Harmony
                         Job jobRider = new Job(BM_JobDefOf.Mount_Battlemount, animal);
                         jobRider.count = 1;
                         pawn.jobs.TryTakeOrderedJob(jobRider);
-
+                        animal.jobs.StopAll();
+                        animal.pather.StopDead();
                         Job jobAnimal = new Job(BM_JobDefOf.Mounted_Battlemount, pawn);
                         jobAnimal.count = 1;
                         animal.jobs.TryTakeOrderedJob(jobAnimal);
