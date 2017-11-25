@@ -55,11 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Battlemounts.cs" />
+    <Compile Include="Harmony\GenDraw_DrawAimPie.cs" />
     <Compile Include="Harmony\Jobdriver_Cleanup.cs" />
-    <Compile Include="Harmony\JobGiver_FleeImmediateDanger_TryGiveJob.cs" />
+    <Compile Include="Harmony\Pawn_MindState.cs" />
     <Compile Include="Harmony\Pawn_HealthTracker.cs" />
     <Compile Include="Harmony\FloatMenuMakerMap.cs" />
     <Compile Include="Harmony\Pawn_DrawAt.cs" />
+    <Compile Include="Harmony\Pawn_TicksPerMove.cs" />
     <Compile Include="Jobs\BM_JobDefOf.cs" />
     <Compile Include="Jobs\JobDriver_Mounted_Battlemount.cs" />
     <Compile Include="Jobs\JobDriver_Mount_Battlemount.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="Storage\ExtendedDataStorage.cs" />
     <Compile Include="Storage\ExtendedPawnData.cs" />
     <Compile Include="Utilities\DefUtility.cs" />
+    <Compile Include="Utilities\TextureUtility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

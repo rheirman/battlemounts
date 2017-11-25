@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse.AI;
-
 namespace Battlemounts.Harmony
 {
     class Jobdriver_Cleanup
@@ -15,10 +14,14 @@ namespace Battlemounts.Harmony
         {
             static bool Prefix(JobDriver __instance)
             {
+                Verse.Log.Message("cleanup!");
+                /*
                 if(__instance.job.def == BM_JobDefOf.Mounted_Battlemount)
                 {
                     return false;
                 }
+                */
+
                 return true;
             }
 

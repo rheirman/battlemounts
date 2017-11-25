@@ -25,11 +25,10 @@ namespace Battlemounts.Harmony
 
                 var pawnData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
                 Pawn animal = (Pawn)current.Thing;
-                Log.Message("Animal curjob: " + animal.CurJob.def.defName);
 
                 
 
-                if (pawnData.mount == null)
+                if (pawnData.mount == null || pawnData.mount.ageTracker.CurLifeStageIndex == pawnData.mount.RaceProps.lifeStageAges.Count - 1)
                 {
                     if (!(animal.CurJob.def == JobDefOf.Wait ||
                         animal.CurJob.def == JobDefOf.Goto ||
@@ -59,7 +58,7 @@ namespace Battlemounts.Harmony
                     opts.Add(new FloatMenuOption("Mount", action, MenuOptionPriority.Default));
 
                 }
-                else
+                else if(animal == pawnData.mount)
                 {
                     Action action = delegate
                     {

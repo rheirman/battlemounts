@@ -12,8 +12,6 @@ namespace Battlemounts.Jobs
     class JobDriver_Mounted_Battlemount : JobDriver
     {
         private Pawn Rider { get { return job.targetA.Thing as Pawn; } }
-        private bool isMounted;
-
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
@@ -29,6 +27,12 @@ namespace Battlemounts.Jobs
         {
             if (Rider.Downed || Rider.Dead)
             {
+                ReadyForNextToil();
+                return;
+            }
+            if (!Rider.Drafted || Rider.InMentalState || pawn.InMentalState)
+            {
+                riderData.mount = null;
                 ReadyForNextToil();
                 return;
             }
@@ -62,7 +66,7 @@ namespace Battlemounts.Jobs
 
         private Toil delegateMovement()
         {
-            ExtendedPawnData riderData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
+            ExtendedPawnData riderData;
             Toil toil = new Toil();
             toil.defaultCompleteMode = ToilCompleteMode.Never;
 
@@ -74,6 +78,8 @@ namespace Battlemounts.Jobs
             };
             toil.tickAction  = delegate
             {
+                riderData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
+                pawn.Drawer.tweener = Rider.Drawer.tweener;
                 cancelJobIfNeeded(riderData);
                 pawn.Position = Rider.Position;
                 pawn.Rotation = Rider.Rotation;
@@ -81,6 +87,9 @@ namespace Battlemounts.Jobs
             };
 
             toil.AddFinishAction(delegate {
+                Log.Message("finishing mounted action");
+
+                riderData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
                 riderData.mount = null;
                 pawn.Drawer.tweener = new PawnTweener(pawn);
             });
@@ -88,13 +97,6 @@ namespace Battlemounts.Jobs
             return toil;
 
         }
-        public override void ExposeData()
-        {
-            base.ExposeData();
-            Scribe_Values.Look<bool>(ref this.isMounted, "isMounted", false, false);
-            //Scribe_Values.Look<Job>(ref job, "job", null, false);
-        }
-
     }
 
 
