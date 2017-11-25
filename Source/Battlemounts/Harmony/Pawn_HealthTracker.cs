@@ -17,7 +17,7 @@ namespace Battlemounts.Harmony
 
             Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
             ExtendedPawnData pawnData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
-            pawnData.mount = null;
+            pawnData.reset();
         }
     }
 
@@ -30,7 +30,7 @@ namespace Battlemounts.Harmony
 
             Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
             ExtendedPawnData pawnData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
-            pawnData.mount = null;
+            pawnData.reset();
         }
     }
 }

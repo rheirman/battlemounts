@@ -62,7 +62,7 @@ namespace Battlemounts.Harmony
                 {
                     Action action = delegate
                     {
-                        pawnData.mount = null;
+                        pawnData.reset();
                     };
                     opts.Add(new FloatMenuOption("Dismount", action, MenuOptionPriority.Default));
 

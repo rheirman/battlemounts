@@ -90,7 +90,7 @@ namespace Battlemounts.Jobs
                 Log.Message("finishing mounted action");
 
                 riderData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
-                riderData.mount = null;
+                riderData.reset();
                 pawn.Drawer.tweener = new PawnTweener(pawn);
             });
 

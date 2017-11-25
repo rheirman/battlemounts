@@ -18,5 +18,10 @@ namespace Battlemounts.Storage
             Scribe_Values.Look(ref drawOffset, "drawOffset", 0);
 
         }
+        public void reset()
+        {
+            mount = null;
+            drawOffset = -1;
+        }
     }
 }

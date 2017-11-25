@@ -62,6 +62,7 @@
     <Compile Include="Harmony\FloatMenuMakerMap.cs" />
     <Compile Include="Harmony\Pawn_DrawAt.cs" />
     <Compile Include="Harmony\Pawn_TicksPerMove.cs" />
+    <Compile Include="Harmony\Projectile_Launch.cs" />
     <Compile Include="Jobs\BM_JobDefOf.cs" />
     <Compile Include="Jobs\JobDriver_Mounted_Battlemount.cs" />
     <Compile Include="Jobs\JobDriver_Mount_Battlemount.cs" />
