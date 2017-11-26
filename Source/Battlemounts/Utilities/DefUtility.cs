@@ -10,18 +10,18 @@ namespace Battlemounts.Utilities
     public class DefUtility
     {
 
-        public static List<PawnKindDef> getMountableAnimals()
+        public static List<ThingDef> getAnimals()
         {
             //TODO: adapt this!
-            Predicate<PawnKindDef> isMountableAnimal = (PawnKindDef d) => d.race.race.packAnimal;
-            List<PawnKindDef> mountableAnimals = new List<PawnKindDef>();
-            foreach (PawnKindDef thingDef in from td in DefDatabase<PawnKindDef>.AllDefs
-                                          where isMountableAnimal(td)
+            Predicate<ThingDef> isAnimal = (ThingDef d) => d.race !=null && d.race.Animal;
+            List<ThingDef> animals = new List<ThingDef>();
+            foreach (ThingDef thingDef in from td in DefDatabase<ThingDef>.AllDefs
+                                          where isAnimal(td)
                                           select td)
             {
-                mountableAnimals.Add(thingDef);
+                animals.Add(thingDef);
             }
-            return mountableAnimals;
+            return animals;
         }
 
     }

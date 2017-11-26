@@ -44,7 +44,7 @@ namespace Battlemounts.Jobs
             toil.defaultDuration = 150;
             toil.AddFinishAction(delegate {
                 Pawn actor = toil.GetActor();
-                var extendedDataStore = Battlemounts.Instance.GetExtendedDataStorage();
+                var extendedDataStore = Base.Instance.GetExtendedDataStorage();
                 var pawnData = extendedDataStore.GetExtendedDataFor(actor);
                 pawnData.mount = (Pawn)((Thing)actor.CurJob.GetTarget(tameeInd));
                 setDrawOffset(pawnData);
@@ -65,7 +65,7 @@ namespace Battlemounts.Jobs
                 //If animal texture does not fit in a tile, take this into account
                 float extraOffset = textureHeight > 1f ? (textureHeight - 1f) / 2f : 0;
                 //Small extra offset, you don't want to draw pawn exactly on back
-                extraOffset += (float)textureHeight / 20f;
+                extraOffset += (float)textureHeight / 15f;
                 pawnData.drawOffset = (textureHeight * backHeightRelative - extraOffset);
                 //pawnData.hasLongNeckOrHorns = TextureUtility.hasLongNeckOrHorns(t, backHeight, 6);
         }

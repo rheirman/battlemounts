@@ -17,7 +17,7 @@ namespace Battlemounts.Harmony
 
         static bool Prefix(Pawn __instance, Vector3 drawLoc, bool flip = false)
         {
-            ExtendedPawnData pawnData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(__instance);
+            ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(__instance);
 
             if (pawnData.mount != null)
             {

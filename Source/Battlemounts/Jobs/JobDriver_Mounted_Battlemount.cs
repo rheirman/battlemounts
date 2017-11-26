@@ -45,7 +45,7 @@ namespace Battlemounts.Jobs
 
         private Toil waitForRider()
         {
-            ExtendedPawnData riderData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
+            ExtendedPawnData riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
 
             Toil toil = new Toil();
 
@@ -78,18 +78,19 @@ namespace Battlemounts.Jobs
             };
             toil.tickAction  = delegate
             {
-                riderData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
+                riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
                 pawn.Drawer.tweener = Rider.Drawer.tweener;
                 cancelJobIfNeeded(riderData);
                 pawn.Position = Rider.Position;
                 pawn.Rotation = Rider.Rotation;
+                pawn.meleeVerbs.TryMeleeAttack(Rider.TargetCurrentlyAimingAt.Thing, this.job.verbToUse, false);
 
             };
 
             toil.AddFinishAction(delegate {
                 Log.Message("finishing mounted action");
 
-                riderData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
+                riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
                 riderData.reset();
                 pawn.Drawer.tweener = new PawnTweener(pawn);
             });

@@ -23,12 +23,12 @@ namespace Battlemounts.Harmony
                     return;
                 }
 
-                var pawnData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
+                var pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
                 Pawn animal = (Pawn)current.Thing;
 
                 
 
-                if (pawnData.mount == null || pawnData.mount.ageTracker.CurLifeStageIndex == pawnData.mount.RaceProps.lifeStageAges.Count - 1)
+                if (pawnData.mount == null && animal.ageTracker.CurLifeStageIndex == animal.RaceProps.lifeStageAges.Count - 1 && animal.training != null && animal.training.IsCompleted(TrainableDefOf.Obedience))
                 {
                     if (!(animal.CurJob.def == JobDefOf.Wait ||
                         animal.CurJob.def == JobDefOf.Goto ||

@@ -54,7 +54,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Battlemounts.cs" />
+    <Compile Include="AnimalRecord.cs" />
+    <Compile Include="Base.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Harmony\GenDraw_DrawAimPie.cs" />
     <Compile Include="Harmony\Jobdriver_Cleanup.cs" />
     <Compile Include="Harmony\Pawn_MindState.cs" />
@@ -69,7 +71,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\ExtendedDataStorage.cs" />
     <Compile Include="Storage\ExtendedPawnData.cs" />
+    <Compile Include="DictAnimalRecordHandler.cs" />
     <Compile Include="Utilities\DefUtility.cs" />
+    <Compile Include="Utilities\DrawUtility.cs" />
     <Compile Include="Utilities\TextureUtility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

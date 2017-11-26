@@ -21,7 +21,7 @@ namespace Battlemounts.Harmony
                 return;
             }
             Pawn pawn = launcher as Pawn;
-            ExtendedPawnData pawnData = Battlemounts.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
+            ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
 
             if (pawnData.drawOffset > -1)
             {
