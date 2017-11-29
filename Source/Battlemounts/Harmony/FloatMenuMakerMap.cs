@@ -8,6 +8,8 @@ using UnityEngine;
 using Verse;
 using Verse.AI;
 using BattleMounts.Jobs;
+using GiddyUpCore;
+
 namespace BattleMounts.Harmony
 {
     [HarmonyPatch(typeof(FloatMenuMakerMap), "AddDraftedOrders")]
@@ -29,7 +31,7 @@ namespace BattleMounts.Harmony
                 if (pawnData.mount == null )
                 {
                     AnimalRecord value;
-                    bool found = Base.animalSelecter.Value.InnerList.TryGetValue(animal.def.defName, out value);
+                    bool found = GiddyUpCore.Base.animalSelecter.Value.InnerList.TryGetValue(animal.def.defName, out value);
                     if (found && !value.isSelected)
                     {
                         opts.Add(new FloatMenuOption("BM_NotInModOptions".Translate(), null, MenuOptionPriority.Default));

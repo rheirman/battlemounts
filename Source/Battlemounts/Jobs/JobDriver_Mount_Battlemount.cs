@@ -1,5 +1,4 @@
-﻿using BattleMounts.Storage;
-using BattleMounts.Utilities;
+﻿using GiddyUpCore.Storage;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -8,6 +7,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using GiddyUpCore.Utilities;
 
 namespace BattleMounts.Jobs
 {
@@ -45,8 +45,7 @@ namespace BattleMounts.Jobs
             toil.AddFinishAction(delegate {
                 Log.Message("finishAction mountee");
                 Pawn actor = toil.GetActor();
-                var extendedDataStore = Base.Instance.GetExtendedDataStorage();
-                var pawnData = extendedDataStore.GetExtendedDataFor(actor);
+                ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(actor);
                 pawnData.mount = (Pawn)((Thing)actor.CurJob.GetTarget(tameeInd));
                 TextureUtility.setDrawOffset(pawnData);
             });

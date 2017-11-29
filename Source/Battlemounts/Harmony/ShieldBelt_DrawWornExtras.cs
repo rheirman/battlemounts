@@ -6,7 +6,7 @@ using UnityEngine;
 using Verse;
 using Harmony;
 using RimWorld;
-using BattleMounts.Storage;
+using GiddyUpCore.Storage;
 
 namespace BattleMounts.Harmony
 {
