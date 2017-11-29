@@ -11,7 +11,7 @@ using Verse.AI;
 
 namespace BattleMounts.Jobs
 {
-    public class JobDriver_Mount_Battlemount : JobDriver
+    public class JobDriver_Mount_BattleMount : JobDriver
     {
         public override bool TryMakePreToilReservations()
         {

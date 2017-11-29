@@ -1,4 +1,4 @@
-﻿using Battlemounts.Storage;
+﻿using BattleMounts.Storage;
 using Harmony;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace Battlemounts.Harmony
+namespace BattleMounts.Harmony
 {
 
     [HarmonyPatch(typeof(Projectile), "Launch")]

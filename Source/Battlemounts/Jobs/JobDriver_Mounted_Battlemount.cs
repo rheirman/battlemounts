@@ -11,7 +11,7 @@ namespace BattleMounts.Jobs
 {
     //TODO: find better solution for riderData so I don't have to assign each time it is used. 
     //TODO: find a way to get rid of shouldEnd
-    class JobDriver_Mounted_Battlemount : JobDriver
+    class JobDriver_Mounted_BattleMount : JobDriver
     {
         private Pawn Rider { get { return job.targetA.Thing as Pawn; } }
         ExtendedPawnData riderData;
@@ -73,7 +73,7 @@ namespace BattleMounts.Jobs
                 {
                     ReadyForNextToil();
                 }
-                if(Rider.CurJob.def != BM_JobDefOf.Mount_Battlemount && riderData.mount == null){
+                if(Rider.CurJob.def != BM_JobDefOf.Mount_BattleMount && riderData.mount == null){
                     shouldEnd = true;
                     ReadyForNextToil();
                 }

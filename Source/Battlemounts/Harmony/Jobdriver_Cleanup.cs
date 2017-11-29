@@ -15,7 +15,7 @@ namespace BattleMounts.Harmony
             static bool Prefix(JobDriver __instance)
             {
                 
-                if(__instance.job.def == BM_JobDefOf.Mounted_Battlemount)
+                if(__instance.job.def == BM_JobDefOf.Mounted_BattleMount)
                 {
                     Verse.Log.Message("ignoring cleanup!");
 

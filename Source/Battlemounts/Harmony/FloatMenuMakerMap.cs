@@ -7,8 +7,8 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
-using Battlemounts.Jobs;
-namespace Battlemounts.Harmony
+using BattleMounts.Jobs;
+namespace BattleMounts.Harmony
 {
     [HarmonyPatch(typeof(FloatMenuMakerMap), "AddDraftedOrders")]
     [HarmonyPatch(new Type[] { typeof(Vector3), typeof(Pawn), typeof(List<FloatMenuOption>) })]
@@ -64,12 +64,12 @@ namespace Battlemounts.Harmony
                     Action action = delegate
                     {
 
-                        Job jobRider = new Job(BM_JobDefOf.Mount_Battlemount, animal);
+                        Job jobRider = new Job(BM_JobDefOf.Mount_BattleMount, animal);
                         jobRider.count = 1;
                         pawn.jobs.TryTakeOrderedJob(jobRider);
                         animal.jobs.StopAll();
                         animal.pather.StopDead();
-                        Job jobAnimal = new Job(BM_JobDefOf.Mounted_Battlemount, pawn);
+                        Job jobAnimal = new Job(BM_JobDefOf.Mounted_BattleMount, pawn);
                         jobAnimal.count = 1;
                         animal.jobs.TryTakeOrderedJob(jobAnimal);
                     };

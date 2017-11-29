@@ -10,8 +10,8 @@ namespace BattleMounts.Jobs
     [DefOf]
     public static class BM_JobDefOf
     {
-        public static JobDef Mount_Battlemount;
-        public static JobDef Mounted_Battlemount;
+        public static JobDef Mount_BattleMount;
+        public static JobDef Mounted_BattleMount;
 
     }
 
