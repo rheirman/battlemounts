@@ -6,9 +6,9 @@ using UnityEngine;
 using Verse;
 using Harmony;
 using RimWorld;
-using Battlemounts.Storage;
+using BattleMounts.Storage;
 
-namespace Battlemounts.Harmony
+namespace BattleMounts.Harmony
 {
         [HarmonyPatch(typeof(ShieldBelt), "DrawWornExtras")]
         static class ShieldBelt_DrawWornExtras

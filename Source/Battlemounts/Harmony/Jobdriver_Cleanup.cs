@@ -1,11 +1,11 @@
-﻿using Battlemounts.Jobs;
+﻿using BattleMounts.Jobs;
 using Harmony;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse.AI;
-namespace Battlemounts.Harmony
+namespace BattleMounts.Harmony
 {
     class Jobdriver_Cleanup
     {

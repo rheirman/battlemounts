@@ -1,4 +1,4 @@
-﻿using Battlemounts.Storage;
+﻿using BattleMounts.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using UnityEngine;
 using Verse;
 using Verse.AI;
 
-namespace Battlemounts.Jobs
+namespace BattleMounts.Jobs
 {
     //TODO: find better solution for riderData so I don't have to assign each time it is used. 
     //TODO: find a way to get rid of shouldEnd

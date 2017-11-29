@@ -4,7 +4,7 @@
 		  <xpath>*/ThingDef[defName = "LabradorRetriever"]</xpath>
 		  <value>
 			  <comps>
-				<li Class="Battlemounts.CompProperties_Battlemounts">
+				<li Class="BattleMounts.CompProperties_BattleMounts">
 					<isException>true</isException>
 				</li>
 			  </comps>
@@ -14,7 +14,7 @@
 		  <xpath>*/ThingDef[defName = "Ibex"]</xpath>
 		  <value>
 			  <comps>
-				<li Class="Battlemounts.CompProperties_Battlemounts">
+				<li Class="BattleMounts.CompProperties_BattleMounts">
 					<isException>true</isException>
 				</li>
 			  </comps>
@@ -23,7 +23,7 @@
 	<Operation Class ="PatchOperationAdd">
 		  <xpath>*/ThingDef[defName = "Caribou"]/comps</xpath>
 		  <value>
-				<li Class="Battlemounts.CompProperties_Battlemounts">
+				<li Class="BattleMounts.CompProperties_BattleMounts">
 					<isException>true</isException>
 				</li>
 		  </value>
@@ -31,7 +31,7 @@
 	<Operation Class ="PatchOperationAdd">
 		  <xpath>*/ThingDef[defName = "Alpaca"]/comps</xpath>
 		  <value>
-				<li Class="Battlemounts.CompProperties_Battlemounts">
+				<li Class="BattleMounts.CompProperties_BattleMounts">
 					<drawFront>true</drawFront>
 				</li>
 		  </value>
@@ -39,7 +39,7 @@
 	<Operation Class ="PatchOperationAdd">
 		  <xpath>*/ThingDef[defName = "Elk"]/comps</xpath>
 		  <value>
-				<li Class="Battlemounts.CompProperties_Battlemounts">
+				<li Class="BattleMounts.CompProperties_BattleMounts">
 					<drawFront>true</drawFront>
 				</li>
 		  </value>
@@ -47,7 +47,7 @@
 	<Operation Class ="PatchOperationAdd">
 		  <xpath>*/ThingDef[defName = "Ostrich"]/comps</xpath>
 		  <value>
-				<li Class="Battlemounts.CompProperties_Battlemounts">
+				<li Class="BattleMounts.CompProperties_BattleMounts">
 					<drawFront>true</drawFront>
 				</li>
 		  </value>
@@ -56,7 +56,7 @@
 		  <xpath>*/ThingDef[defName = "Thrumbo"]</xpath>
 		  <value>
 			  <comps>
-				<li Class="Battlemounts.CompProperties_Battlemounts">
+				<li Class="BattleMounts.CompProperties_BattleMounts">
 					<drawFront>true</drawFront>
 				</li>
 			  </comps>

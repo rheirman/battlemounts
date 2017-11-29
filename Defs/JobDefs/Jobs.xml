@@ -2,13 +2,13 @@
 <Defs>
   <JobDef>
     <defName>Mount_Battlemount</defName>
-    <driverClass>Battlemounts.Jobs.JobDriver_Mount_Battlemount</driverClass>
+    <driverClass>BattleMounts.Jobs.JobDriver_Mount_BattleMount</driverClass>
     <reportString>Mounting</reportString>
     <casualInterruptible>false</casualInterruptible>
   </JobDef>
   <JobDef>
     <defName>Mounted_Battlemount</defName>
-    <driverClass>Battlemounts.Jobs.JobDriver_Mounted_Battlemount</driverClass>
+    <driverClass>BattleMounts.Jobs.JobDriver_Mounted_BattleMount</driverClass>
     <reportString>Mounted</reportString>
     <casualInterruptible>false</casualInterruptible>
   </JobDef>

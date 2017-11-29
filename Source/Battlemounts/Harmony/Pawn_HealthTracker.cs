@@ -1,4 +1,4 @@
-﻿using Battlemounts.Storage;
+﻿using BattleMounts.Storage;
 using Harmony;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace Battlemounts.Harmony
+namespace BattleMounts.Harmony
 {
     [HarmonyPatch(typeof(Pawn_HealthTracker), "MakeDowned")]
     static class Pawn_HealthTracker_MakeDowned

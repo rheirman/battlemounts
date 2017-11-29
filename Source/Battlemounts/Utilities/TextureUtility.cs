@@ -1,4 +1,4 @@
-﻿using Battlemounts.Storage;
+﻿using BattleMounts.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace Battlemounts.Utilities
+namespace BattleMounts.Utilities
 {
     class TextureUtility
     {

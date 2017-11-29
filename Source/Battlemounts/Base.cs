@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using HugsLib;
 using HugsLib.Utils;
-using Battlemounts.Storage;
-using Battlemounts.Utilities;
+using BattleMounts.Storage;
+using BattleMounts.Utilities;
 using Verse;
 using UnityEngine;
 using HugsLib.Settings;
 using RunAndGun.Utilities;
 
-namespace Battlemounts
+namespace BattleMounts
 {
     public class Base : ModBase
     {
@@ -28,7 +28,7 @@ namespace Battlemounts
 
         public override string ModIdentifier
         {
-            get { return "Battlemounts"; }
+            get { return "BattleMounts"; }
         }
         public Base()
         {
@@ -81,7 +81,7 @@ namespace Battlemounts
             Dictionary<String, AnimalRecord> result = new Dictionary<string, AnimalRecord>();
             foreach(ThingDef animal in allAnimals)
             {
-                CompProperties_Battlemounts prop = animal.GetCompProperties<CompProperties_Battlemounts>();
+                CompProperties_BattleMounts prop = animal.GetCompProperties<CompProperties_BattleMounts>();
 
                 float mass = animal.race.baseBodySize;
                 if (prop != null && prop.isException)
@@ -104,7 +104,7 @@ namespace Battlemounts
             Dictionary<String, AnimalRecord> result = new Dictionary<string, AnimalRecord>();
             foreach (ThingDef animal in allAnimals)
             {
-                CompProperties_Battlemounts prop = animal.GetCompProperties<CompProperties_Battlemounts>();
+                CompProperties_BattleMounts prop = animal.GetCompProperties<CompProperties_BattleMounts>();
 
                 float mass = animal.race.baseBodySize;
                 if (prop != null && prop.drawFront)

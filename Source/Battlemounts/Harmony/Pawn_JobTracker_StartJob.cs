@@ -1,4 +1,4 @@
-﻿using Battlemounts.Jobs;
+﻿using BattleMounts.Jobs;
 using Harmony;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using Verse;
 using Verse.AI;
 
 
-namespace Battlemounts.Harmony
+namespace BattleMounts.Harmony
 {
     [HarmonyPatch(typeof(Pawn_JobTracker), "StartJob")]
     static class Pawn_JobTracker_StartJob

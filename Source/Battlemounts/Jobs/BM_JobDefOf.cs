@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace Battlemounts.Jobs
+namespace BattleMounts.Jobs
 {
     [DefOf]
     public static class BM_JobDefOf

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace Battlemounts.Storage
+namespace BattleMounts.Storage
 {
     public class ExtendedPawnData : IExposable
     {

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace Battlemounts
+namespace BattleMounts
 {
-    class CompProperties_Battlemounts : CompProperties
+    class CompProperties_BattleMounts : CompProperties
     {
-        public CompProperties_Battlemounts()
+        public CompProperties_BattleMounts()
         {
-            compClass = typeof(CompBattlemounts);
+            compClass = typeof(CompBattleMounts);
         }
 
         public bool drawFront = false;

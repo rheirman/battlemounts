@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace Battlemounts.Utilities
+namespace BattleMounts.Utilities
 {
     public class DefUtility
     {

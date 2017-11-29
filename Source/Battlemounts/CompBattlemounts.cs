@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace Battlemounts
+namespace BattleMounts
 {
-    class CompBattlemounts : ThingComp
+    class CompBattleMounts : ThingComp
     {
 
         public override void Initialize(CompProperties props)

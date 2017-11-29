@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battlemounts", "Battlemounts.csproj", "{8092BA5D-6451-4BA3-A1F5-914AC774A8B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleMounts", "BattleMounts.csproj", "{8092BA5D-6451-4BA3-A1F5-914AC774A8B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

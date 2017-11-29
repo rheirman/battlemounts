@@ -7,8 +7,8 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 using HugsLib.Settings;
-using Battlemounts;
-using Battlemounts.Utilities;
+using BattleMounts;
+using BattleMounts.Utilities;
 
 namespace RunAndGun.Utilities
 {

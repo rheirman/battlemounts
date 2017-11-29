@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace Battlemounts.Harmony
+namespace BattleMounts.Harmony
 {
     [HarmonyPatch(typeof(VerbProperties), "AdjustedAccuracy")]
     static class VerbProperties_AdjustedAccuracy

@@ -1,5 +1,5 @@
-﻿using Battlemounts.Storage;
-using Battlemounts.Utilities;
+﻿using BattleMounts.Storage;
+using BattleMounts.Utilities;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using UnityEngine;
 using Verse;
 using Verse.AI;
 
-namespace Battlemounts.Jobs
+namespace BattleMounts.Jobs
 {
     public class JobDriver_Mount_Battlemount : JobDriver
     {
