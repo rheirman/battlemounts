@@ -17,6 +17,7 @@ namespace Battlemounts.Jobs
         {
             return true;
         }
+        private Pawn Mount { get { return job.targetA.Thing as Pawn; } }
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
@@ -31,44 +32,28 @@ namespace Battlemounts.Jobs
             yield return TalkToAnimal(TargetIndex.A);
         }
 
-        private static Toil TalkToAnimal(TargetIndex tameeInd)
+        private Toil TalkToAnimal(TargetIndex tameeInd)
         {
             Toil toil = new Toil();
             toil.initAction = delegate
             {
                 Pawn actor = toil.GetActor();
-                Pawn recipient = (Pawn)((Thing)actor.CurJob.GetTarget(tameeInd));
-                actor.interactions.TryInteractWith(recipient, InteractionDefOf.AnimalChat);
+                actor.interactions.TryInteractWith(Mount, InteractionDefOf.AnimalChat);
             };
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
             toil.defaultDuration = 150;
             toil.AddFinishAction(delegate {
+                Log.Message("finishAction mountee");
                 Pawn actor = toil.GetActor();
                 var extendedDataStore = Base.Instance.GetExtendedDataStorage();
                 var pawnData = extendedDataStore.GetExtendedDataFor(actor);
                 pawnData.mount = (Pawn)((Thing)actor.CurJob.GetTarget(tameeInd));
-                setDrawOffset(pawnData);
+                TextureUtility.setDrawOffset(pawnData);
             });
             return toil;
         }
 
-        private static void setDrawOffset(ExtendedPawnData pawnData)
-        {
-            //TODO: move this to a more appropriate place
-                PawnKindLifeStage curKindLifeStage = pawnData.mount.ageTracker.CurKindLifeStage;
-                Texture2D unreadableTexture = curKindLifeStage.bodyGraphicData.Graphic.MatSide.mainTexture as Texture2D;
-                Texture2D t = TextureUtility.getReadableTexture(unreadableTexture);
-                int backHeight = TextureUtility.getBackHeight(t);
-                float backHeightRelative = (float)backHeight / (float)t.height;
 
-                float textureHeight = curKindLifeStage.bodyGraphicData.drawSize.y;
-                //If animal texture does not fit in a tile, take this into account
-                float extraOffset = textureHeight > 1f ? (textureHeight - 1f) / 2f : 0;
-                //Small extra offset, you don't want to draw pawn exactly on back
-                extraOffset += (float)textureHeight / 15f;
-                pawnData.drawOffset = (textureHeight * backHeightRelative - extraOffset);
-                //pawnData.hasLongNeckOrHorns = TextureUtility.hasLongNeckOrHorns(t, backHeight, 6);
-        }
 
         
     }

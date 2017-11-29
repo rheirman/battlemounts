@@ -26,10 +26,16 @@ namespace Battlemounts.Harmony
                 var pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
                 Pawn animal = (Pawn)current.Thing;
 
-                
-
-                if (pawnData.mount == null && animal.ageTracker.CurLifeStageIndex == animal.RaceProps.lifeStageAges.Count - 1 && animal.training != null && animal.training.IsCompleted(TrainableDefOf.Obedience))
+                if (pawnData.mount == null )
                 {
+                    AnimalRecord value;
+                    bool found = Base.animalSelecter.Value.InnerList.TryGetValue(animal.def.defName, out value);
+                    if (found && !value.isSelected)
+                    {
+                        opts.Add(new FloatMenuOption("BM_NotInModOptions".Translate(), null, MenuOptionPriority.Default));
+                        return;
+                    }
+
                     if (!(animal.CurJob.def == JobDefOf.Wait ||
                         animal.CurJob.def == JobDefOf.Goto ||
                         animal.CurJob.def == JobDefOf.GotoWander ||
@@ -39,9 +45,21 @@ namespace Battlemounts.Harmony
                         animal.CurJob.def == JobDefOf.GotoSafeTemperature ||
                         animal.CurJob.def == JobDefOf.LayDown))
                     {
-                        opts.Add(new FloatMenuOption("Cannot mount, animal busy", null, MenuOptionPriority.Default));
+                        opts.Add(new FloatMenuOption("BM_AnimalBusy".Translate(), null, MenuOptionPriority.Default));
                         return;
                     }
+                    if (animal.ageTracker.CurLifeStageIndex != animal.RaceProps.lifeStageAges.Count - 1)
+                    {
+                        opts.Add(new FloatMenuOption("BM_NotFullyGrown".Translate(), null, MenuOptionPriority.Default));
+                        return;
+                    }
+                    if(!(animal.training != null && animal.training.IsCompleted(TrainableDefOf.Obedience)))
+                    {
+                        opts.Add(new FloatMenuOption("BM_NeedsObedience".Translate(), null, MenuOptionPriority.Default));
+                        return;
+                    }
+
+
 
                     Action action = delegate
                     {
@@ -55,16 +73,18 @@ namespace Battlemounts.Harmony
                         jobAnimal.count = 1;
                         animal.jobs.TryTakeOrderedJob(jobAnimal);
                     };
-                    opts.Add(new FloatMenuOption("Mount", action, MenuOptionPriority.Default));
+                    opts.Add(new FloatMenuOption("BM_Mount".Translate(), action, MenuOptionPriority.Default));
 
                 }
                 else if(animal == pawnData.mount)
                 {
+                    if(opts.Count > 0 ) opts.RemoveAt(0);//Remove option to attack your own mount
+
                     Action action = delegate
                     {
                         pawnData.reset();
                     };
-                    opts.Add(new FloatMenuOption("Dismount", action, MenuOptionPriority.Default));
+                    opts.Add(new FloatMenuOption("BM_Dismount".Translate(), action, MenuOptionPriority.Default));
 
                 }
 

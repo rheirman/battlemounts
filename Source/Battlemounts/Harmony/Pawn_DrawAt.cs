@@ -27,6 +27,15 @@ namespace Battlemounts.Harmony
                 {
                     drawLoc.z = pawnData.mount.Drawer.DrawPos.z + pawnData.drawOffset;
                 }
+                if(__instance.Rotation == Rot4.South )
+                {
+                    AnimalRecord value;
+                    bool found = Base.drawSelecter.Value.InnerList.TryGetValue(pawnData.mount.def.defName, out value);
+                    if (found && value.isSelected)
+                    {
+                        drawLoc.y = pawnData.mount.Drawer.DrawPos.y - 1;
+                    }
+                }
                 __instance.Drawer.DrawAt(drawLoc);
                 return false;
             }

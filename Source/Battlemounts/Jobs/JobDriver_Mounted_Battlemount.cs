@@ -9,9 +9,13 @@ using Verse.AI;
 
 namespace Battlemounts.Jobs
 {
+    //TODO: find better solution for riderData so I don't have to assign each time it is used. 
+    //TODO: find a way to get rid of shouldEnd
     class JobDriver_Mounted_Battlemount : JobDriver
     {
         private Pawn Rider { get { return job.targetA.Thing as Pawn; } }
+        ExtendedPawnData riderData;
+        bool shouldEnd = false;
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
@@ -23,55 +27,76 @@ namespace Battlemounts.Jobs
             return true;
         }
 
-        private void cancelJobIfNeeded(ExtendedPawnData riderData)
+        private bool cancelJobIfNeeded(ExtendedPawnData riderData)
         {
+
+            if (shouldEnd)
+            {
+                //Log.Message("cancel job, shouldEnd called");
+                ReadyForNextToil();
+                return true;
+            }
+
             if (Rider.Downed || Rider.Dead)
             {
+                //Log.Message("cancel job, rider downed or dead");
                 ReadyForNextToil();
-                return;
+                return true;
             }
             if (!Rider.Drafted || Rider.InMentalState || pawn.InMentalState)
             {
+                //Log.Message("cancel job, rider or mount in mental state");
                 riderData.mount = null;
                 ReadyForNextToil();
-                return;
+                return true;
             }
             if (riderData.mount == null)
             {
+                //Log.Message("cancel job, rider has no mount");
                 ReadyForNextToil();
+                return true;
             }
+            return false;
 
         }
 
         private Toil waitForRider()
         {
-            ExtendedPawnData riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
-
             Toil toil = new Toil();
 
             toil.defaultCompleteMode = ToilCompleteMode.Never;
 
-            toil.FailOn(() => Rider.CurJob.def != BM_JobDefOf.Mount_Battlemount && riderData.mount == null);
-
             toil.tickAction = delegate
             {
-                if (riderData.mount != null)
+                riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
+                if (riderData.mount != null && riderData.mount == pawn)
                 {
                     ReadyForNextToil();
                 }
-                
+                if(Rider.CurJob.def != BM_JobDefOf.Mount_Battlemount && riderData.mount == null){
+                    shouldEnd = true;
+                    ReadyForNextToil();
+                }
+
             };
             return toil;
         }
 
+        
+
         private Toil delegateMovement()
         {
-            ExtendedPawnData riderData;
             Toil toil = new Toil();
             toil.defaultCompleteMode = ToilCompleteMode.Never;
 
             toil.initAction = delegate
             {
+                riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
+                bool shouldCancel = cancelJobIfNeeded(riderData);
+                if (shouldCancel)
+                {
+                    return;
+                }
                 pawn.Drawer.tweener = Rider.Drawer.tweener;
                 pawn.Position = Rider.Position;
 
@@ -79,8 +104,13 @@ namespace Battlemounts.Jobs
             toil.tickAction  = delegate
             {
                 riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
+                bool shouldCancel = cancelJobIfNeeded(riderData);
+                if (shouldCancel)
+                {
+                    return;
+                }
                 pawn.Drawer.tweener = Rider.Drawer.tweener;
-                cancelJobIfNeeded(riderData);
+
                 pawn.Position = Rider.Position;
                 pawn.Rotation = Rider.Rotation;
                 pawn.meleeVerbs.TryMeleeAttack(Rider.TargetCurrentlyAimingAt.Thing, this.job.verbToUse, false);

@@ -14,13 +14,14 @@ namespace Battlemounts.Harmony
         {
             static bool Prefix(JobDriver __instance)
             {
-                Verse.Log.Message("cleanup!");
-                /*
+                
                 if(__instance.job.def == BM_JobDefOf.Mounted_Battlemount)
                 {
+                    Verse.Log.Message("ignoring cleanup!");
+
                     return false;
                 }
-                */
+                
 
                 return true;
             }

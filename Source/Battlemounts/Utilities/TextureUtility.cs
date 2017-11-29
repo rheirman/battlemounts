@@ -1,20 +1,41 @@
-﻿using System;
+﻿using Battlemounts.Storage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using Verse;
 
 namespace Battlemounts.Utilities
 {
     class TextureUtility
     {
+
+
+        public static void setDrawOffset(ExtendedPawnData pawnData)
+        {
+            PawnKindLifeStage curKindLifeStage = pawnData.mount.ageTracker.CurKindLifeStage;
+            Texture2D unreadableTexture = curKindLifeStage.bodyGraphicData.Graphic.MatSide.mainTexture as Texture2D;
+            Texture2D t = TextureUtility.getReadableTexture(unreadableTexture);
+            int backHeight = TextureUtility.getBackHeight(t);
+            float backHeightRelative = (float)backHeight / (float)t.height;
+
+            float textureHeight = curKindLifeStage.bodyGraphicData.drawSize.y;
+            //If animal texture does not fit in a tile, take this into account
+            float extraOffset = textureHeight > 1f ? (textureHeight - 1f) / 2f : 0;
+            //Small extra offset, you don't want to draw pawn exactly on back
+            extraOffset += (float)textureHeight / 20f;
+            pawnData.drawOffset = (textureHeight * backHeightRelative - extraOffset);
+        }
+
         /*
- * Attempt of automatic long neck or horns detection that could be used to decide if pawns should be
- * drawn in front or behind the mount in frontal view. 
- * While it does often detect necks and horns, it doesn't really serve its purpose as necks and
- * horns that are long when viewed from the side, are often not in front of the pawn in frontal view. 
- * Might still prove usable for non-vanilla animals
- */
+        * Attempt of automatic long neck or horns detection that could be used to decide if pawns should be
+        * drawn in front or behind the mount in frontal view. 
+        * While it does often detect necks and horns, it doesn't really serve its purpose as necks and
+        * horns that are long when viewed from the side, are often not in front of the pawn in frontal view. 
+        * Might still prove usable for non-vanilla animals
+        */
+
         public static bool hasLongNeckOrHorns(Texture2D t, int backHeight, int fraction)
         {
             int bodyPixels = 0;
@@ -51,7 +72,7 @@ namespace Battlemounts.Utilities
             return false;
         }
 
-        public static int getBackHeight(Texture2D t)
+        private static int getBackHeight(Texture2D t)
         {
 
             int middle = t.width / 2;
@@ -76,7 +97,7 @@ namespace Battlemounts.Utilities
             return backHeight;
         }
 
-        public static Texture2D getReadableTexture(Texture2D texture)
+        private static Texture2D getReadableTexture(Texture2D texture)
         {
             // Create a temporary RenderTexture of the same size as the texture
             RenderTexture tmp = RenderTexture.GetTemporary(

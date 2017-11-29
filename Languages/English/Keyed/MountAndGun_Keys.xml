@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+ <BM_AccuracyPenalty_Title>Accuracy penalty</BM_AccuracyPenalty_Title>
+ <BM_AccuracyPenalty_Description>Accuracy penalty</BM_AccuracyPenalty_Description>
+ <BM_tab1>Mountable animals..</BM_tab1>
+ <BM_tab2>Drawing options..</BM_tab2>
+ <BM_Tabs_Title>Configuration options</BM_Tabs_Title>
+ <BM_BodySizeFilter_Title>Filter by body size</BM_BodySizeFilter_Title>
+ <BM_BodySizeFilter_Description>Filter mountable animals by body size</BM_BodySizeFilter_Description>
+ <BM_Animalselection_Title>Select mountable animals</BM_Animalselection_Title>
+ <BM_Animalselection_Description>Use the filter above to filter by body size, and click tiles to make exceptions</BM_Animalselection_Description>
+ <BM_Drawselection_Title>Set draw priority</BM_Drawselection_Title>
+ <BM_Drawselection_Description>Configure which animals should be drawn in front of pawns, and which ones should be drawn behind pawns. 
+ Most animals should be drawn behind pawns, but some (especially animals with long necks or horns) look better when drawn in front of pawns</BM_Drawselection_Description>
+ <BM_SizeOk>Mountable</BM_SizeOk>
+ <BM_SizeNotOk>Not Mountable</BM_SizeNotOk>
+ <BM_DrawFront>Animal in front</BM_DrawFront>
+ <BM_DrawBack>Animal behind pawn</BM_DrawBack>
+ <BM_NotInModOptions>Cannot mount, animal not allowed in mod options</BM_NotInModOptions>
+ <BM_AnimalBusy>Cannot mount, animal busy</BM_AnimalBusy>
+ <BM_NotFullyGrown>Cannot mount, animal not fully grown</BM_NotFullyGrown>
+ <BM_NeedsObedience>Cannot mount, animal needs obedience training</BM_NeedsObedience>
+ <BM_Mount>Mount</BM_Mount>
+ <BM_Dismount>Dismount</BM_Dismount>
+</LanguageData>

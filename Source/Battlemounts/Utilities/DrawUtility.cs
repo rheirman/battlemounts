@@ -95,7 +95,7 @@ namespace RunAndGun.Utilities
 
         public static bool CustomDrawer_Tabs(Rect rect, SettingHandle<String> selected, String[] defaultValues)
         {
-            int labelWidth = 50;
+            int labelWidth = 140;
             int offset = 0;
             bool change = false;
 
@@ -104,7 +104,6 @@ namespace RunAndGun.Utilities
                 Rect buttonRect = new Rect(rect);
                 buttonRect.width = labelWidth;
                 buttonRect.position = new Vector2(buttonRect.position.x + offset, buttonRect.position.y);
-                Log.Message("drawing label for " + tab);
                 Color activeColor = GUI.color;
                 bool isSelected = tab == selected.Value;
                 if (isSelected)
@@ -162,7 +161,7 @@ namespace RunAndGun.Utilities
             return change;
         }
 
-        internal static bool CustomDrawer_MatchingAnimals_active(Rect wholeRect, SettingHandle<DictAnimalRecordHandler> setting, List<ThingDef> allAnimals, string yesText = "Is a mount", string noText = "Is not a mount")
+        internal static bool CustomDrawer_MatchingAnimals_active(Rect wholeRect, SettingHandle<DictAnimalRecordHandler> setting, List<ThingDef> allAnimals, SettingHandle<float> filter = null, string yesText = "Is a mount", string noText = "Is not a mount")
         {
             drawBackground(wholeRect, background);
 
@@ -193,8 +192,12 @@ namespace RunAndGun.Utilities
             Dictionary<String, AnimalRecord> selection = new Dictionary<string, AnimalRecord>();
             for (int i = 0; i < allAnimals.Count; i++)
             {
-                float mass = allAnimals[i].race.baseBodySize;
-
+                bool shouldSelect = false;
+                if (filter != null)
+                {
+                    float mass = allAnimals[i].race.baseBodySize;
+                    shouldSelect = mass >= filter.Value;
+                }
                 AnimalRecord value = null;
                 bool found = setting.Value.InnerList.TryGetValue(allAnimals[i].defName, out value);
                 if (found && value.isException)
@@ -203,8 +206,7 @@ namespace RunAndGun.Utilities
                 }
                 else
                 {
-                    selection.Add(allAnimals[i].defName, new AnimalRecord(mass >= Base.bodySizeFilter.Value, false));
-
+                    selection.Add(allAnimals[i].defName, new AnimalRecord(shouldSelect, false));
                 }
             }
 
@@ -252,6 +254,9 @@ namespace RunAndGun.Utilities
             }
             return change;
         }
+       
     }
-
 }
+
+
+
