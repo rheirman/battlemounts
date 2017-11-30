@@ -1,4 +1,5 @@
 ﻿using GiddyUpCore.Storage;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace BattleMounts.Jobs
     //TODO: find a way to get rid of shouldEnd
     class JobDriver_Mounted_BattleMount : JobDriver
     {
-        private Pawn Rider { get { return job.targetA.Thing as Pawn; } }
+        public Pawn Rider { get { return job.targetA.Thing as Pawn; } }
         ExtendedPawnData riderData;
         bool shouldEnd = false;
 
@@ -37,7 +38,8 @@ namespace BattleMounts.Jobs
                 return true;
             }
 
-            if (Rider.Downed || Rider.Dead)
+            Thing thing = pawn as Thing;
+            if (Rider.Downed || Rider.Dead || pawn.Downed || pawn.Dead || pawn.IsBurning() || Rider.IsBurning())
             {
                 //Log.Message("cancel job, rider downed or dead");
                 ReadyForNextToil();

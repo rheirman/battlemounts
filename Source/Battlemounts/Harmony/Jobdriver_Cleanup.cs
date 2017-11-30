@@ -1,9 +1,11 @@
 ﻿using BattleMounts.Jobs;
+using GiddyUpCore.Storage;
 using Harmony;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Verse;
 using Verse.AI;
 namespace BattleMounts.Harmony
 {
@@ -12,18 +14,22 @@ namespace BattleMounts.Harmony
         [HarmonyPatch(typeof(JobDriver), "Cleanup")]
         static class JobDriver_Cleanup
         {
-            static bool Prefix(JobDriver __instance)
+            static void Prefix(JobDriver __instance)
             {
-                
-                if(__instance.job.def == BM_JobDefOf.Mounted_BattleMount)
+                if(__instance.job.def != BM_JobDefOf.Mounted_BattleMount)
                 {
-                    Verse.Log.Message("ignoring cleanup!");
-
-                    return false;
+                    return;
                 }
-                
+                JobDriver_Mounted_BattleMount jobDriver = (JobDriver_Mounted_BattleMount) __instance;
 
-                return true;
+                ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(jobDriver.pawn);
+                if (pawnData != null)
+                {
+                    Pawn Rider = jobDriver.Rider;
+                    ExtendedPawnData riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
+                    riderData.reset();
+                    jobDriver.pawn.Drawer.tweener = new PawnTweener(jobDriver.pawn);
+                }
             }
 
         }
