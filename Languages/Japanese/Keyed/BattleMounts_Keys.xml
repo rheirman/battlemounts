@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <BM_AccuracyPenalty_Title>命中精度ペナルティ</BM_AccuracyPenalty_Title>
+  <BM_AccuracyPenalty_Description>ポーンが騎乗時している際の命中精度低下ペナルティです。</BM_AccuracyPenalty_Description>
+  <BM_SizeOk>騎乗可能</BM_SizeOk>
+  <BM_SizeNotOk>騎乗不可</BM_SizeNotOk>
+  <BM_DrawFront>動物を前面に表示</BM_DrawFront>
+  <BM_DrawBack>動物を背後に表示</BM_DrawBack>
+  <BM_NotInModOptions>騎乗できません、この動物はmodオプションで許可されていません</BM_NotInModOptions>
+  <BM_AnimalBusy>騎乗できません、この動物は忙しいようです</BM_AnimalBusy>
+  <BM_NotFullyGrown>騎乗できません、この動物は大人ではありません</BM_NotFullyGrown>
+  <BM_NeedsObedience>騎乗できません、この動物は服従訓練を受けていません</BM_NeedsObedience>
+  <BM_Mount>騎乗する</BM_Mount>
+  <BM_Dismount>降りる</BM_Dismount>
+
+
+</LanguageData>
