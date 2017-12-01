@@ -37,16 +37,13 @@ namespace BattleMounts.Harmony
                         opts.Add(new FloatMenuOption("BM_NotInModOptions".Translate(), null, MenuOptionPriority.Low));
                         return;
                     }
-
-                    if (!(animal.CurJob.def == JobDefOf.Wait ||
-                        animal.CurJob.def == JobDefOf.Goto ||
-                        animal.CurJob.def == JobDefOf.GotoWander ||
-                        animal.CurJob.def == JobDefOf.WaitWander ||
-                        animal.CurJob.def == JobDefOf.WaitMaintainPosture ||
-                        animal.CurJob.def == JobDefOf.WaitSafeTemperature ||
-                        animal.CurJob.def == JobDefOf.GotoSafeTemperature ||
-                        animal.CurJob.def == JobDefOf.LayDown ||
-                        animal.InMentalState))
+                    //TODO: this list except the check for inMentalState is probably not necessary but removal needs testing. 
+                    if (animal.InMentalState || 
+                        animal.IsBurning() || 
+                        animal.CurJob.def == JobDefOf.LayEgg || 
+                        animal.CurJob.def == JobDefOf.Nuzzle ||
+                        animal.CurJob.def == JobDefOf.Lovin ||
+                        animal.CurJob.def == JobDefOf.WaitDowned)
                     {
                         opts.Add(new FloatMenuOption("BM_AnimalBusy".Translate(), null, MenuOptionPriority.Low));
                         return;
