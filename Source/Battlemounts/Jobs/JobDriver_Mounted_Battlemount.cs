@@ -33,7 +33,7 @@ namespace BattleMounts.Jobs
 
             if (shouldEnd)
             {
-                //Log.Message("cancel job, shouldEnd called");
+                Log.Message("cancel job, shouldEnd called");
                 ReadyForNextToil();
                 return true;
             }
@@ -41,20 +41,20 @@ namespace BattleMounts.Jobs
             Thing thing = pawn as Thing;
             if (Rider.Downed || Rider.Dead || pawn.Downed || pawn.Dead || pawn.IsBurning() || Rider.IsBurning())
             {
-                //Log.Message("cancel job, rider downed or dead");
+                Log.Message("cancel job, rider downed or dead");
                 ReadyForNextToil();
                 return true;
             }
             if (!Rider.Drafted || Rider.InMentalState || pawn.InMentalState)
             {
-                //Log.Message("cancel job, rider or mount in mental state");
+                Log.Message("cancel job, rider or mount in mental state");
                 riderData.mount = null;
                 ReadyForNextToil();
                 return true;
             }
             if (riderData.mount == null)
             {
-                //Log.Message("cancel job, rider has no mount");
+                Log.Message("cancel job, rider has no mount");
                 ReadyForNextToil();
                 return true;
             }

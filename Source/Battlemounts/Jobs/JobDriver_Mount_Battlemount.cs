@@ -24,8 +24,6 @@ namespace BattleMounts.Jobs
 
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             this.FailOnDowned(TargetIndex.A);
-            this.FailOnNotCasualInterruptible(TargetIndex.A);
-
 
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
             yield return Toils_Interpersonal.WaitToBeAbleToInteract(this.pawn);
