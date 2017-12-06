@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+ <BM_AccuracyPenalty_Title>Pénalité de précision</BM_AccuracyPenalty_Title>
+ <BM_AccuracyPenalty_Description>Pénalité de précision lorsque des personnages sont montés</BM_AccuracyPenalty_Description>
+ <BM_SizeOk>Montable</BM_SizeOk>
+ <BM_SizeNotOk>Non montable</BM_SizeNotOk>
+ <BM_DrawFront>Animal devant</BM_DrawFront>
+ <BM_DrawBack>Animal derrière le joueur</BM_DrawBack>
+ <BM_NotInModOptions>Impossible de monter, animal interdit dans les options du mod.</BM_NotInModOptions>
+ <BM_AnimalBusy>Impossible à monter, animal occupé</BM_AnimalBusy>
+ <BM_NotFullyGrown>Ne peut pas monter, animal non adulte</BM_NotFullyGrown>
+ <BM_NeedsObedience>Ne peut pas monter, l'animal a besoin de dressage : obéissance</BM_NeedsObedience>
+ <BM_Mount>Monter</BM_Mount>
+ <BM_Dismount>Descendre</BM_Dismount>
+</LanguageData>
