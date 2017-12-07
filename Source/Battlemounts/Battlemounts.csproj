@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="Harmony\GenDraw_DrawAimPie.cs" />
+    <Compile Include="Harmony\PawnGroupKindWorker_GeneratePawns.cs" />
     <Compile Include="Harmony\Jobdriver_Cleanup.cs" />
     <Compile Include="Harmony\Pawn_JobTracker_StartJob.cs" />
     <Compile Include="Harmony\FloatMenuMakerMap.cs" />
