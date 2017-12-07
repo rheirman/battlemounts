@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+ <BM_AccuracyPenalty_Title>Штраф к меткости</BM_AccuracyPenalty_Title>
+ <BM_AccuracyPenalty_Description>Штраф к меткости атак наездника</BM_AccuracyPenalty_Description>
+ <BM_SizeOk>Седлаемое</BM_SizeOk>
+ <BM_SizeNotOk>Не Седлаемое</BM_SizeNotOk>
+ <BM_DrawFront>Животное спереди</BM_DrawFront>
+ <BM_DrawBack>Животное позади наездника</BM_DrawBack>
+ <BM_NotInModOptions>Нельзя оседлать, животное запрещено в настройках мода</BM_NotInModOptions>
+ <BM_AnimalBusy>Нельзя оседлать, животное занято</BM_AnimalBusy>
+ <BM_NotFullyGrown>Нельзя оседлать, животное ещё не полностью выросло</BM_NotFullyGrown>
+ <BM_NeedsObedience>Нельзя оседлать, животное нужно обучить покорности</BM_NeedsObedience>
+ <BM_Mount>Оседлать</BM_Mount>
+ <BM_Dismount>Спешиться</BM_Dismount>
+</LanguageData>
