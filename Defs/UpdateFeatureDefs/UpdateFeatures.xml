@@ -9,7 +9,7 @@
 		<defName>BattleMounts_0_18_3</defName>
 		<assemblyVersion>0.18.3</assemblyVersion>
 		<content>Giddy-up Battle Mounts has been updated with the following changes: 
-- Enemy pawns now also use mounts!
+- Enemy pawns now also use mounts during raids and ambushes!
 - The chance that a given enemy pawn spawns with a mount is 40% for tribals and 20% for non-tribals. These chances can be configured in the mod options. 
 - Enemy pawns can only mount animals allowed in the mod options. The mounts they use will depend on the environment in which they attack. 
 - Fixed issue that sometimes causes mounts to teleport when mounting is interrupted. 
