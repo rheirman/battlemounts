@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+
+ <BM_EnemyMountChance_Title>Enemy pawn mount chance</BM_EnemyMountChance_Title>
+ <BM_EnemyMountChance_Description>Chance that a given enemy pawn has a mount during a raid</BM_EnemyMountChance_Description>
+ <BM_EnemyMountChanceTribal_Title>Enemy tribal pawn mount chance</BM_EnemyMountChanceTribal_Title>
+ <BM_EnemyMountChanceTribal_Description>Chance that a given enemy tribal pawn has a mount during a raid</BM_EnemyMountChanceTribal_Description>
  <BM_AccuracyPenalty_Title>Accuracy penalty</BM_AccuracyPenalty_Title>
  <BM_AccuracyPenalty_Description>Accuracy penalty when pawns are mounted</BM_AccuracyPenalty_Description>
  <BM_SizeOk>Mountable</BM_SizeOk>

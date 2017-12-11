@@ -60,6 +60,8 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="Harmony\GenDraw_DrawAimPie.cs" />
+    <Compile Include="Harmony\IncidentWorker_Ambush_DoExecute.cs" />
+    <Compile Include="Harmony\IncidentWorker_PawnsArrive_TryExecuteWorker.cs" />
     <Compile Include="Harmony\Jobdriver_Cleanup.cs" />
     <Compile Include="Harmony\Pawn_JobTracker_StartJob.cs" />
     <Compile Include="Harmony\FloatMenuMakerMap.cs" />
@@ -70,6 +72,8 @@
     <Compile Include="Jobs\JobDriver_Mounted_BattleMount.cs" />
     <Compile Include="Jobs\JobDriver_Mount_BattleMount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\NPCMountUtility.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

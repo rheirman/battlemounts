@@ -17,6 +17,7 @@ namespace BattleMounts.Jobs
         public Pawn Rider { get { return job.targetA.Thing as Pawn; } }
         ExtendedPawnData riderData;
         bool shouldEnd = false;
+        bool isFinished = false;
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
@@ -33,7 +34,7 @@ namespace BattleMounts.Jobs
 
             if (shouldEnd)
             {
-                Log.Message("cancel job, shouldEnd called");
+                //Log.Message("cancel job, shouldEnd called");
                 ReadyForNextToil();
                 return true;
             }
@@ -41,20 +42,27 @@ namespace BattleMounts.Jobs
             Thing thing = pawn as Thing;
             if (Rider.Downed || Rider.Dead || pawn.Downed || pawn.Dead || pawn.IsBurning() || Rider.IsBurning())
             {
-                Log.Message("cancel job, rider downed or dead");
+               //Log.Message("cancel job, rider downed or dead");
                 ReadyForNextToil();
                 return true;
             }
-            if (!Rider.Drafted || Rider.InMentalState || pawn.InMentalState)
+            if (Rider.InMentalState || pawn.InMentalState)
             {
-                Log.Message("cancel job, rider or mount in mental state");
+                //Log.Message("cancel job, rider or mount in mental state");
+                riderData.mount = null;
+                ReadyForNextToil();
+                return true;
+            }
+            if (!Rider.Drafted && Rider.IsColonist)
+            {
+                //Log.Message("cancel job, rider not drafted while being colonist");
                 riderData.mount = null;
                 ReadyForNextToil();
                 return true;
             }
             if (riderData.mount == null)
             {
-                Log.Message("cancel job, rider has no mount");
+                //Log.Message("cancel job, rider has no mount");
                 ReadyForNextToil();
                 return true;
             }
@@ -105,6 +113,10 @@ namespace BattleMounts.Jobs
             };
             toil.tickAction  = delegate
             {
+                if (isFinished)
+                {
+                    return;
+                }
                 riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
                 bool shouldCancel = cancelJobIfNeeded(riderData);
                 if (shouldCancel)
@@ -116,15 +128,19 @@ namespace BattleMounts.Jobs
                 pawn.Position = Rider.Position;
                 pawn.Rotation = Rider.Rotation;
                 pawn.meleeVerbs.TryMeleeAttack(Rider.TargetCurrentlyAimingAt.Thing, this.job.verbToUse, false);
+                Log.Message("tickAction called");
+                Log.Message("pawn position now is : " + pawn.Position);
 
             };
 
             toil.AddFinishAction(delegate {
                 Log.Message("finishing mounted action");
-
+                isFinished = true;
                 riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
                 riderData.reset();
                 pawn.Drawer.tweener = new PawnTweener(pawn);
+                pawn.Position = Rider.Position;
+                Log.Message("pawn position now is : " + pawn.Position);
             });
 
             return toil;
