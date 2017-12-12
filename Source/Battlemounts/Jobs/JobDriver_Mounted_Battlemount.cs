@@ -46,7 +46,7 @@ namespace BattleMounts.Jobs
                 ReadyForNextToil();
                 return true;
             }
-            if (Rider.InMentalState || pawn.InMentalState)
+            if (pawn.InMentalState || Rider.InMentalState)
             {
                 //Log.Message("cancel job, rider or mount in mental state");
                 riderData.mount = null;
