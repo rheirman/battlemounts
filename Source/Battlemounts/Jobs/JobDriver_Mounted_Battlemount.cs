@@ -128,19 +128,15 @@ namespace BattleMounts.Jobs
                 pawn.Position = Rider.Position;
                 pawn.Rotation = Rider.Rotation;
                 pawn.meleeVerbs.TryMeleeAttack(Rider.TargetCurrentlyAimingAt.Thing, this.job.verbToUse, false);
-                Log.Message("tickAction called");
-                Log.Message("pawn position now is : " + pawn.Position);
 
             };
 
             toil.AddFinishAction(delegate {
-                Log.Message("finishing mounted action");
                 isFinished = true;
                 riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
                 riderData.reset();
                 pawn.Drawer.tweener = new PawnTweener(pawn);
                 pawn.Position = Rider.Position;
-                Log.Message("pawn position now is : " + pawn.Position);
             });
 
             return toil;

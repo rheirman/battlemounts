@@ -41,7 +41,6 @@ namespace BattleMounts.Jobs
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
             toil.defaultDuration = 150;
             toil.AddFinishAction(delegate {
-                Log.Message("finishAction mountee");
                 Pawn actor = toil.GetActor();
                 ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(actor);
                 pawnData.mount = (Pawn)((Thing)actor.CurJob.GetTarget(tameeInd));

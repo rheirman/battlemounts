@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+
+ <BM_EnemyMountChance_Title>Шанс появления врага-наездника</BM_EnemyMountChance_Title>
+ <BM_EnemyMountChance_Description>Шанс того, что боец противника прибудет на рейд верхом</BM_EnemyMountChance_Description>
+ <BM_EnemyMountChanceTribal_Title>Шанс появления вражеского аборигена-наездника</BM_EnemyMountChanceTribal_Title>
+ <BM_EnemyMountChanceTribal_Description>Шанс того, что боец враждебного племени прибудет на рейд верхом</BM_EnemyMountChanceTribal_Description>
+ 
  <BM_AccuracyPenalty_Title>Штраф к меткости</BM_AccuracyPenalty_Title>
  <BM_AccuracyPenalty_Description>Штраф к меткости атак наездника</BM_AccuracyPenalty_Description>
  <BM_SizeOk>Седлаемое</BM_SizeOk>
