@@ -6,5 +6,8 @@
 	<description> 
 Giddy-up! Let your pawns charge into battle with mounts. 
 With this mod, drafted pawns can mount almost any animal that is large enough. 
+
+&lt;color=orange&gt;&lt;b&gt;Dependencies &lt;/b&gt;&lt;/color&gt;
+This mod depends on Giddy-up! Core, and Hugslib. Load order should be: Hugslib -> Giddy-up! Core -> Giddy-up! Battle Mounts
 	</description>	
 </ModMetaData>
