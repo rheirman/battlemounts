@@ -33,6 +33,8 @@ namespace BattleMounts.Jobs
         private Toil TalkToAnimal(TargetIndex tameeInd)
         {
             Toil toil = new Toil();
+
+            toil.AddFailCondition(delegate { return Mount.CurJob.def != BM_JobDefOf.Mounted_BattleMount; });
             toil.initAction = delegate
             {
                 Pawn actor = toil.GetActor();
@@ -41,10 +43,13 @@ namespace BattleMounts.Jobs
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
             toil.defaultDuration = 150;
             toil.AddFinishAction(delegate {
-                Pawn actor = toil.GetActor();
-                ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(actor);
-                pawnData.mount = (Pawn)((Thing)actor.CurJob.GetTarget(tameeInd));
-                TextureUtility.setDrawOffset(pawnData);
+                if (Mount.CurJob != null && Mount.CurJob.def == BM_JobDefOf.Mounted_BattleMount)
+                {
+                    Pawn actor = toil.GetActor();
+                    ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(actor);
+                    pawnData.mount = (Pawn)((Thing)actor.CurJob.GetTarget(tameeInd));
+                    TextureUtility.setDrawOffset(pawnData);
+                }
             });
             return toil;
         }

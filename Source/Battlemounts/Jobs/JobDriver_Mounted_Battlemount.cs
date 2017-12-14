@@ -99,18 +99,6 @@ namespace BattleMounts.Jobs
             Toil toil = new Toil();
             toil.defaultCompleteMode = ToilCompleteMode.Never;
 
-            toil.initAction = delegate
-            {
-                riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
-                bool shouldCancel = cancelJobIfNeeded(riderData);
-                if (shouldCancel)
-                {
-                    return;
-                }
-                pawn.Drawer.tweener = Rider.Drawer.tweener;
-                pawn.Position = Rider.Position;
-
-            };
             toil.tickAction  = delegate
             {
                 if (isFinished)
@@ -136,7 +124,7 @@ namespace BattleMounts.Jobs
                 riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
                 riderData.reset();
                 pawn.Drawer.tweener = new PawnTweener(pawn);
-                pawn.Position = Rider.Position;
+                //pawn.Position = Rider.Position;
             });
 
             return toil;
