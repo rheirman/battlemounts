@@ -46,17 +46,21 @@ namespace BattleMounts.Jobs
                 ReadyForNextToil();
                 return true;
             }
-            if (pawn.InMentalState || Rider.InMentalState)
+            if (pawn.InMentalState || (Rider.InMentalState && Rider.MentalState.def != MentalStateDefOf.PanicFlee))
             {
                 //Log.Message("cancel job, rider or mount in mental state");
-                riderData.mount = null;
+                ReadyForNextToil();
+                return true;
+            }
+            if (!Rider.Spawned)
+            {
+                pawn.DeSpawn();
                 ReadyForNextToil();
                 return true;
             }
             if (!Rider.Drafted && Rider.IsColonist)
             {
                 //Log.Message("cancel job, rider not drafted while being colonist");
-                riderData.mount = null;
                 ReadyForNextToil();
                 return true;
             }
@@ -120,6 +124,10 @@ namespace BattleMounts.Jobs
             };
 
             toil.AddFinishAction(delegate {
+                if (!Rider.IsColonist)
+                {
+                    pawn.SetFaction(null);
+                }
                 isFinished = true;
                 riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
                 riderData.reset();
