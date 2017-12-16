@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <BM_HandlingAccuracyImpact_Title>動物スキルのレベルによる命中率影響（％）</BM_HandlingAccuracyImpact_Title>
+  <BM_HandlingAccuracyImpact_Description>ポーンの動物スキルが、その動物を飼いならすのに必要なレベルよりも低い場合、これは足りない動物スキルレベルごとのペナルティです。それ必要スキル以上の場合はレベルごとのボーナスです。</BM_HandlingAccuracyImpact_Description>
+  <BM_InBiomeWeight_Title>敵の騎乗確率(コロニー内気候)</BM_InBiomeWeight_Title>
+  <BM_InBiomeWeight_Description>あなたのコロニーが存在している気候に生息する動物に、敵のポーンが騎乗してくる確率です。
+合計が100(%)でない場合、確率は100に修正(正規化)されます。</BM_InBiomeWeight_Description>
+  <BM_OutBiomeWeight_Title>敵の騎乗確率(他の気候)</BM_OutBiomeWeight_Title>
+  <BM_OutBiomeWeight_Description>あなたのコロニー以外の気候に生息する動物に敵のポーンが騎乗してくる確率です。
+合計が100(%)でない場合、確率は100に修正(正規化)されます。</BM_OutBiomeWeight_Description>
+  <BM_NonWildWeight_Title>敵の騎乗確率(野生動物以外)</BM_NonWildWeight_Title>
+  <BM_NonWildWeight_Description>野生では見つからない動物に敵が騎乗してくる確率です。
+合計が100(%)でない場合、確率は100に修正(正規化)されます。</BM_NonWildWeight_Description>
+
 
   <BM_EnemyMountChance_Title>敵の騎乗確率</BM_EnemyMountChance_Title>
   <BM_EnemyMountChance_Description>襲撃の際に敵のポーンが騎乗してくる確率です。</BM_EnemyMountChance_Description>
