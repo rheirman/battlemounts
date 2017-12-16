@@ -126,7 +126,10 @@ namespace BattleMounts.Jobs
             toil.AddFinishAction(delegate {
                 if (!Rider.IsColonist)
                 {
-                    pawn.SetFaction(null);
+                    if(pawn.Faction != null)
+                    {
+                        pawn.SetFaction(null);
+                    }
                 }
                 isFinished = true;
                 riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base.cs" />
+    <Compile Include="Concepts\BM_ConceptDefOf.cs" />
     <Compile Include="Harmony\GenDraw_DrawAimPie.cs" />
     <Compile Include="Harmony\IncidentWorker_Ambush_DoExecute.cs" />
     <Compile Include="Harmony\IncidentWorker_Raid_TryExecuteWorker.cs" />

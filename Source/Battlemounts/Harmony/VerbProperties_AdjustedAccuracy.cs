@@ -1,8 +1,10 @@
 ﻿using Harmony;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using Verse;
 
 namespace BattleMounts.Harmony
@@ -27,11 +29,14 @@ namespace BattleMounts.Harmony
             {
                 return;
             }
-            if (Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn).mount == null)
+            Pawn mount = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn).mount;
+            if (mount == null)
             {
                 return;
             }
-            float factor = ((float)(100 - Base.accuracyPenalty.Value) / 100);
+            float adjustedLevel = pawn.skills.GetSkill(SkillDefOf.Animals).levelInt - Mathf.RoundToInt(mount.GetStatValue(StatDefOf.MinimumHandlingSkill, true));
+            float animalHandlingOffset = adjustedLevel * Base.handlingAccuracyImpact;
+            float factor = (100f - ((float)Base.accuracyPenalty.Value - animalHandlingOffset)) / 100f;
             __result *= factor;
         }
     }

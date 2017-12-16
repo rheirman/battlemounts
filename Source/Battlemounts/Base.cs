@@ -7,8 +7,9 @@ using HugsLib.Utils;
 using Verse;
 using UnityEngine;
 using HugsLib.Settings;
-using RunAndGun.Utilities;
 using GiddyUpCore.Storage;
+using RimWorld;
+using Battlemounts.Concepts;
 
 namespace BattleMounts
 {
@@ -16,8 +17,14 @@ namespace BattleMounts
     {
         internal static Base Instance { get; private set; }
         internal static SettingHandle<int> accuracyPenalty;
+        internal static SettingHandle<float> handlingAccuracyImpact;
+
         internal static SettingHandle<int> enemyMountChance;
         internal static SettingHandle<int> enemyMountChanceTribal;
+
+        internal static SettingHandle<int> inBiomeWeight;
+        internal static SettingHandle<int> outBiomeWeight;
+        internal static SettingHandle<int> nonWildWeight;
 
         private int minPercentage = 0;
         private int maxPercentage = 100;
@@ -34,9 +41,21 @@ namespace BattleMounts
         {
             base.DefsLoaded();
             accuracyPenalty = Settings.GetHandle<int>("accuracyPenalty", "BM_AccuracyPenalty_Title".Translate(), "BM_AccuracyPenalty_Description".Translate(), 10, Validators.IntRangeValidator(minPercentage, maxPercentage));
+            handlingAccuracyImpact = Settings.GetHandle<float>("handlingAccuracyImpact", "BM_HandlingAccuracyImpact_Title".Translate(), "BM_HandlingAccuracyImpact_Description".Translate(), 0.5f, Validators.FloatRangeValidator(0f, 2f));
+
             enemyMountChance = Settings.GetHandle<int>("enemyMountChance", "BM_EnemyMountChance_Title".Translate(), "BM_EnemyMountChance_Description".Translate(), 20, Validators.IntRangeValidator(minPercentage, maxPercentage));
+            inBiomeWeight = Settings.GetHandle<int>("inBiomeWeight", "BM_InBiomeWeight_Title".Translate(), "BM_InBiomeWeight_Description".Translate(), 70, Validators.IntRangeValidator(minPercentage, maxPercentage));
+            outBiomeWeight = Settings.GetHandle<int>("outBiomeWeight", "BM_OutBiomeWeight_Title".Translate(), "BM_OutBiomeWeight_Description".Translate(), 15, Validators.IntRangeValidator(minPercentage, maxPercentage));
+            nonWildWeight = Settings.GetHandle<int>("nonWildWeight", "BM_NonWildWeight_Title".Translate(), "BM_NonWildWeight_Description".Translate(), 15, Validators.IntRangeValidator(minPercentage, maxPercentage));
+
             enemyMountChanceTribal = Settings.GetHandle<int>("enemyMountChanceTribal", "BM_EnemyMountChanceTribal_Title".Translate(), "BM_EnemyMountChanceTribal_Description".Translate(), 40, Validators.IntRangeValidator(minPercentage, maxPercentage));
 
+        }
+        public override void WorldLoaded()
+        {
+            base.WorldLoaded();
+            LessonAutoActivator.TeachOpportunity(BM_ConceptDefOf.BM_Mounting, OpportunityType.GoodToKnow);
+            LessonAutoActivator.TeachOpportunity(BM_ConceptDefOf.BM_Enemy_Mounting, OpportunityType.GoodToKnow);
         }
 
         public ExtendedDataStorage GetExtendedDataStorage()
