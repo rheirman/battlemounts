@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-
+ <BM_HandlingAccuracyImpact_Title>Изменение шанса попадания(%) за уровень животноводства</BM_HandlingAccuracyImpact_Title>
+ <BM_HandlingAccuracyImpact_Description>Если навык животноводства наездника ниже уровня, требуемого для приручения животного - это штраф за уровень разницы. Если навык выше - это бонус за уровень разницы.</BM_HandlingAccuracyImpact_Description>  
+ <BM_InBiomeWeight_Title>Шанс ездового животного врага из вашего биома</BM_InBiomeWeight_Title>
+ <BM_InBiomeWeight_Description>Шанс того, что животное, верхом на котором прибудет враг, встречается в местном биоме.
+ Шансы нормализуются до 100% если их сумма не равно 100</BM_InBiomeWeight_Description>
+ <BM_OutBiomeWeight_Title>Шанс ездового животного врага из любого биома</BM_OutBiomeWeight_Title>
+ <BM_OutBiomeWeight_Description>Шанс того, что животное, верхом на котором прибудет враг, встречается в каком-либо биоме.
+ Шансы нормализуются до 100% если их сумма не равно 100</BM_OutBiomeWeight_Description>
+ <BM_NonWildWeight_Title>Шанс не-дикого ездового животного врага</BM_NonWildWeight_Title>
+ <BM_NonWildWeight_Description>Шанс того, что животное, верхом на котором прибудет враг, не встречается в дикой природе. 
+ Шансы нормализуются до 100% если их сумма не равно 100</BM_NonWildWeight_Description>
+ 
+ 
  <BM_EnemyMountChance_Title>Шанс появления врага-наездника</BM_EnemyMountChance_Title>
  <BM_EnemyMountChance_Description>Шанс того, что боец противника прибудет на рейд верхом</BM_EnemyMountChance_Description>
  <BM_EnemyMountChanceTribal_Title>Шанс появления вражеского аборигена-наездника</BM_EnemyMountChanceTribal_Title>
  <BM_EnemyMountChanceTribal_Description>Шанс того, что боец враждебного племени прибудет на рейд верхом</BM_EnemyMountChanceTribal_Description>
- 
  <BM_AccuracyPenalty_Title>Штраф к меткости</BM_AccuracyPenalty_Title>
  <BM_AccuracyPenalty_Description>Штраф к меткости атак наездника</BM_AccuracyPenalty_Description>
  <BM_SizeOk>Седлаемое</BM_SizeOk>
