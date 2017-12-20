@@ -43,7 +43,9 @@ namespace BattleMounts.Harmony
                         animal.CurJob.def == JobDefOf.LayEgg || 
                         animal.CurJob.def == JobDefOf.Nuzzle ||
                         animal.CurJob.def == JobDefOf.Lovin ||
-                        animal.CurJob.def == JobDefOf.WaitDowned)
+                        animal.CurJob.def == JobDefOf.WaitDowned ||
+                        animal.CurJob.def == BM_JobDefOf.Mounted_BattleMount
+                        )
                     {
                         opts.Add(new FloatMenuOption("BM_AnimalBusy".Translate(), null, MenuOptionPriority.Low));
                         return;
