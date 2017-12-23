@@ -1,4 +1,4 @@
-﻿using BattleMounts.Jobs;
+﻿using GiddyUpCore.Jobs;
 using GiddyUpCore.Storage;
 using Harmony;
 using System;
@@ -16,11 +16,11 @@ namespace BattleMounts.Harmony
         {
             static void Prefix(JobDriver __instance)
             {
-                if(__instance.job.def != BM_JobDefOf.Mounted_BattleMount)
+                if(__instance.job.def != GUC_JobDefOf.Mounted)
                 {
                     return;
                 }
-                JobDriver_Mounted_BattleMount jobDriver = (JobDriver_Mounted_BattleMount) __instance;
+                JobDriver_Mounted jobDriver = (JobDriver_Mounted) __instance;
 
                 ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(jobDriver.pawn);
                 if (pawnData != null)

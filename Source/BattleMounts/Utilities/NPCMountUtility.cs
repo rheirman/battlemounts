@@ -1,5 +1,5 @@
 ﻿using BattleMounts;
-using BattleMounts.Jobs;
+using GiddyUpCore.Jobs;
 using GiddyUpCore.Storage;
 using GiddyUpCore.Utilities;
 using RimWorld;
@@ -37,9 +37,6 @@ namespace Battlemounts.Utilities
             generateMounts(list, parms, map);
 
         }
-
-
-
         private static bool generateMounts(List<Pawn> list, IncidentParms parms, Map map)
         {
             Predicate<PawnKindDef> isAnimal = (PawnKindDef d) => d.race != null && d.race.race.Animal;
@@ -97,14 +94,14 @@ namespace Battlemounts.Utilities
                 GenSpawn.Spawn(animal, pawn.Position, map, parms.spawnRotation, false);
                 ExtendedPawnData pawnData = GiddyUpCore.Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
                 pawnData.mount = animal;
-                TextureUtility.setDrawOffset(pawnData);
+                TextureUtility.setDrawOffset(pawnData, pawn);
 
                 if (animal.jobs == null)
                 {
                     animal.jobs = new Pawn_JobTracker(animal);
                 }
 
-                Job jobAnimal = new Job(BM_JobDefOf.Mounted_BattleMount, pawn);
+                Job jobAnimal = new Job(GUC_JobDefOf.Mounted, pawn);
                 jobAnimal.count = 1;
                 animal.jobs.TryTakeOrderedJob(jobAnimal);
 

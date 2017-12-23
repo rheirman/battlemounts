@@ -7,8 +7,8 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
-using BattleMounts.Jobs;
 using GiddyUpCore;
+using GiddyUpCore.Jobs;
 
 namespace BattleMounts.Harmony
 {
@@ -44,7 +44,7 @@ namespace BattleMounts.Harmony
                         animal.CurJob.def == JobDefOf.Nuzzle ||
                         animal.CurJob.def == JobDefOf.Lovin ||
                         animal.CurJob.def == JobDefOf.WaitDowned ||
-                        animal.CurJob.def == BM_JobDefOf.Mounted_BattleMount
+                        animal.CurJob.def == GUC_JobDefOf.Mounted
                         )
                     {
                         opts.Add(new FloatMenuOption("BM_AnimalBusy".Translate(), null, MenuOptionPriority.Low));
@@ -66,12 +66,12 @@ namespace BattleMounts.Harmony
                     Action action = delegate
                     {
 
-                        Job jobRider = new Job(BM_JobDefOf.Mount_BattleMount, animal);
+                        Job jobRider = new Job(GUC_JobDefOf.Mount, animal);
                         jobRider.count = 1;
                         pawn.jobs.TryTakeOrderedJob(jobRider);
                         animal.jobs.StopAll();
                         animal.pather.StopDead();
-                        Job jobAnimal = new Job(BM_JobDefOf.Mounted_BattleMount, pawn);
+                        Job jobAnimal = new Job(GUC_JobDefOf.Mounted, pawn);
                         jobAnimal.count = 1;
                         animal.jobs.TryTakeOrderedJob(jobAnimal);
                     };

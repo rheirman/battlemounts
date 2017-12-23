@@ -69,9 +69,6 @@
     <Compile Include="Harmony\Projectile_Launch.cs" />
     <Compile Include="Harmony\ShieldBelt_DrawWornExtras.cs" />
     <Compile Include="Harmony\VerbProperties_AdjustedAccuracy.cs" />
-    <Compile Include="Jobs\BM_JobDefOf.cs" />
-    <Compile Include="Jobs\JobDriver_Mounted_BattleMount.cs" />
-    <Compile Include="Jobs\JobDriver_Mount_BattleMount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\NPCMountUtility.cs" />
   </ItemGroup>
