@@ -1,4 +1,4 @@
-﻿using BattleMounts.Jobs;
+﻿using GiddyUpCore.Jobs;
 using Harmony;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace BattleMounts.Harmony
 
         static bool Prefix(Pawn_JobTracker __instance)
         {
-            if (__instance.curDriver!= null && __instance.curDriver.pawn != null && __instance.curDriver.pawn.CurJob != null && __instance.curDriver.pawn.CurJob.def == BM_JobDefOf.Mounted_BattleMount)
+            if (__instance.curDriver!= null && __instance.curDriver.pawn != null && __instance.curDriver.pawn.CurJob != null && __instance.curDriver.pawn.CurJob.def == GUC_JobDefOf.Mounted)
             {
                 return false;
             }
