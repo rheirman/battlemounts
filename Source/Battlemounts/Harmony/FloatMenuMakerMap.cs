@@ -37,7 +37,6 @@ namespace BattleMounts.Harmony
                         opts.Add(new FloatMenuOption("BM_NotInModOptions".Translate(), null, MenuOptionPriority.Low));
                         return;
                     }
-                    //TODO: this list except the check for inMentalState is probably not necessary but removal needs testing. 
                     if (animal.InMentalState || 
                         animal.IsBurning() || 
                         animal.CurJob.def == JobDefOf.LayEgg || 
