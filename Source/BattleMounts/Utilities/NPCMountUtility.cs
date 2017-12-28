@@ -94,7 +94,7 @@ namespace Battlemounts.Utilities
                 GenSpawn.Spawn(animal, pawn.Position, map, parms.spawnRotation, false);
                 ExtendedPawnData pawnData = GiddyUpCore.Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
                 pawnData.mount = animal;
-                TextureUtility.setDrawOffset(pawnData, pawn);
+                TextureUtility.setDrawOffset(pawnData);
 
                 if (animal.jobs == null)
                 {
