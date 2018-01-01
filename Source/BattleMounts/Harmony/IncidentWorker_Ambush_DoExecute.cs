@@ -1,4 +1,6 @@
 ﻿using Battlemounts.Utilities;
+using BattleMounts;
+using GiddyUpCore.Utilities;
 using Harmony;
 using RimWorld;
 using System;
@@ -27,12 +29,11 @@ namespace Battlemounts.Harmony
                 {
                     yield return new CodeInstruction(OpCodes.Ldloc_2);//load generated pawns as parameter
                     yield return new CodeInstruction(OpCodes.Ldarg_1);//load incidentparms as parameter
-                    yield return new CodeInstruction(OpCodes.Call, typeof(NPCMountUtility).GetMethod("mountAnimals"));//Injected code                                                                                                                         //yield return new CodeInstruction(OpCodes.Stloc_2);
+                    yield return new CodeInstruction(OpCodes.Call, typeof(EnemyMountUtility).GetMethod("mountAnimals"));//Injected code                                                                                                                         //yield return new CodeInstruction(OpCodes.Stloc_2);
                 }
 
             }
 
         }
-
     }
 }

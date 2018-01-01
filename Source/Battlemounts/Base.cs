@@ -44,11 +44,12 @@ namespace BattleMounts
             handlingAccuracyImpact = Settings.GetHandle<float>("handlingAccuracyImpact", "BM_HandlingAccuracyImpact_Title".Translate(), "BM_HandlingAccuracyImpact_Description".Translate(), 0.5f, Validators.FloatRangeValidator(0f, 2f));
 
             enemyMountChance = Settings.GetHandle<int>("enemyMountChance", "BM_EnemyMountChance_Title".Translate(), "BM_EnemyMountChance_Description".Translate(), 20, Validators.IntRangeValidator(minPercentage, maxPercentage));
+            enemyMountChanceTribal = Settings.GetHandle<int>("enemyMountChanceTribal", "BM_EnemyMountChanceTribal_Title".Translate(), "BM_EnemyMountChanceTribal_Description".Translate(), 40, Validators.IntRangeValidator(minPercentage, maxPercentage));
+
             inBiomeWeight = Settings.GetHandle<int>("inBiomeWeight", "BM_InBiomeWeight_Title".Translate(), "BM_InBiomeWeight_Description".Translate(), 70, Validators.IntRangeValidator(minPercentage, maxPercentage));
             outBiomeWeight = Settings.GetHandle<int>("outBiomeWeight", "BM_OutBiomeWeight_Title".Translate(), "BM_OutBiomeWeight_Description".Translate(), 15, Validators.IntRangeValidator(minPercentage, maxPercentage));
             nonWildWeight = Settings.GetHandle<int>("nonWildWeight", "BM_NonWildWeight_Title".Translate(), "BM_NonWildWeight_Description".Translate(), 15, Validators.IntRangeValidator(minPercentage, maxPercentage));
 
-            enemyMountChanceTribal = Settings.GetHandle<int>("enemyMountChanceTribal", "BM_EnemyMountChanceTribal_Title".Translate(), "BM_EnemyMountChanceTribal_Description".Translate(), 40, Validators.IntRangeValidator(minPercentage, maxPercentage));
 
         }
         public override void WorldLoaded()

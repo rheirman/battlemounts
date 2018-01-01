@@ -73,7 +73,7 @@
     <Compile Include="Legacy\JobDriver_Mounted_Battlemount.cs" />
     <Compile Include="Legacy\JobDriver_Mount_Battlemount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\NPCMountUtility.cs" />
+    <Compile Include="Utilities\EnemyMountUtility.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
