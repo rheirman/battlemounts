@@ -24,8 +24,8 @@
   <BM_EnemyMountChance_Description>袭击时敌军士兵骑乘动物的几率。</BM_EnemyMountChance_Description>
   <BM_EnemyMountChanceTribal_Title>部落敌人骑行的机会</BM_EnemyMountChanceTribal_Title>
   <BM_EnemyMountChanceTribal_Description>部落敌人袭击时士兵骑乘动物的几率</BM_EnemyMountChanceTribal_Description>
-  <BM_InBiomeWeight_Title>敌军的坐骑是该生态的几率</BM_InBiomeWeight_Title>
-  <BM_InBiomeWeight_Description>敌人的坐骑是该地图生态圈动物的几率</BM_InBiomeWeight_Description>
+  <BM_InBiomeWeight_Title>敌军的坐骑是该生态动物的几率</BM_InBiomeWeight_Title>
+  <BM_InBiomeWeight_Description>敌军动物从全部可乘骑动物中随机筛选的几率</BM_InBiomeWeight_Description>
   <BM_OutBiomeWeight_Title>敌军坐骑随机的几率</BM_OutBiomeWeight_Title>
   <BM_OutBiomeWeight_Description>敌军动物从全部可乘骑动物中随机筛选的几率</BM_OutBiomeWeight_Description>
   <BM_NonWildWeight_Title>敌军的坐骑为非野生动物的几率</BM_NonWildWeight_Title>
