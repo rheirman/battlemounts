@@ -59,20 +59,13 @@ namespace BattleMounts.Harmony
                         opts.Add(new FloatMenuOption("BM_NeedsObedience".Translate(), null, MenuOptionPriority.Low));
                         return;
                     }
-
-
-
+              
                     Action action = delegate
                     {
 
                         Job jobRider = new Job(GUC_JobDefOf.Mount, animal);
                         jobRider.count = 1;
                         pawn.jobs.TryTakeOrderedJob(jobRider);
-                        animal.jobs.StopAll();
-                        animal.pather.StopDead();
-                        Job jobAnimal = new Job(GUC_JobDefOf.Mounted, pawn);
-                        jobAnimal.count = 1;
-                        animal.jobs.TryTakeOrderedJob(jobAnimal);
                     };
                     opts.Add(new FloatMenuOption("BM_Mount".Translate(), action, MenuOptionPriority.Low));
 
