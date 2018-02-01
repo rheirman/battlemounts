@@ -25,11 +25,11 @@ namespace Battlemounts.Harmony
                 yield return instruction;
                 //Log.Message(instructionsList[i].opcode.ToString());
                 //Log.Message(instructionsList[i].operand as String);
-                
-                if (instruction.operand as String == "F0") //find operand
+
+                if (instructionsList[i].operand == AccessTools.Method(typeof(IncidentWorker_Raid), "GetLetterLabel")) //Identifier for which IL line to inject to
                 {
                     //Start of injection
-                    yield return new CodeInstruction(OpCodes.Ldloc_2);//load generated pawns as parameter
+                    yield return new CodeInstruction(OpCodes.Ldloca_S, 2);//load generated pawns as parameter
                     yield return new CodeInstruction(OpCodes.Ldarg_1);//load incidentparms as parameter
                     yield return new CodeInstruction(OpCodes.Call, typeof(EnemyMountUtility).GetMethod("mountAnimals"));//Injected code
                     //yield return new CodeInstruction(OpCodes.Stloc_2);
