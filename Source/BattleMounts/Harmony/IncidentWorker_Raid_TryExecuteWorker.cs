@@ -9,6 +9,7 @@ using System.Reflection.Emit;
 using System.Text;
 using Verse;
 using Verse.AI;
+using Verse.AI.Group;
 
 namespace Battlemounts.Harmony
 {
@@ -34,12 +35,33 @@ namespace Battlemounts.Harmony
                     yield return new CodeInstruction(OpCodes.Call, typeof(EnemyMountUtility).GetMethod("mountAnimals"));//Injected code
                     //yield return new CodeInstruction(OpCodes.Stloc_2);
                 }
-                
+
+                if (i > 0 && instructionsList[i - 1].operand == AccessTools.Method(typeof(LordMaker), "MakeNewLord")) //Identifier for which IL line to inject to
+                {
+                    //Start of injection
+                    yield return new CodeInstruction(OpCodes.Ldloca_S, 2);//load generated pawns as parameter
+                    yield return new CodeInstruction(OpCodes.Call, typeof(IncidentWorker_Raid_TryExecuteWorker).GetMethod("removeAnimals"));//Injected code
+                    //yield return new CodeInstruction(OpCodes.Stloc_2);
+                }
+
             }
 
 
         }
 
-    
+        public static void removeAnimals(ref List<Pawn> pawns)
+        {
+            List<Pawn> animals = new List<Pawn>();
+            foreach (Pawn pawn in pawns)
+            {
+                if (pawn.RaceProps.Animal)
+                {
+                    animals.Add(pawn);
+                }
+            }
+            pawns = pawns.Except(animals).ToList();
+        }
+
+
     }
 }
