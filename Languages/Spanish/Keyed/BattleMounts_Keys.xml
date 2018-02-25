@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <BM_HandlingAccuracyImpact_Title>Impacto de precisión(%) por nivel de manejo de animales</BM_HandlingAccuracyImpact_Title>
+  <BM_HandlingAccuracyImpact_Description>Si la habilidad de manejo del animal de un colono está por debajo del nivel que se necesitaría para domar al animal, esta es una penalización por nivel. De lo contrario, es una bonificación por nivel.</BM_HandlingAccuracyImpact_Description>
+  <BM_InBiomeWeight_Title>Posibilidad de montura enemiga de tu bioma</BM_InBiomeWeight_Title>
+  <BM_InBiomeWeight_Description>La posibilidad de que una montura utilizada por un colono enemigo sea una de tu bioma.
+ Las posibilidades se normalizan a 100% si la suma no es 100</BM_InBiomeWeight_Description>
+  <BM_OutBiomeWeight_Title>Posibilidad montura enemiga de cualquier bioma</BM_OutBiomeWeight_Title>
+  <BM_OutBiomeWeight_Description>La posibilidad de que una montura utilizada por un colono enemigo sea una de cualquier bioma.
+ Las posibilidades se normalizan al 100% si la suma no es 100</BM_OutBiomeWeight_Description>
+  <BM_NonWildWeight_Title>Probabilidad de montaje enemigo no salvaje</BM_NonWildWeight_Title>
+  <BM_NonWildWeight_Description>La posibilidad de que una montura utilizada por un colono enemigo no se encuentre en la naturaleza.
+ Las posibilidades se normalizan al 100% si la suma no es 100</BM_NonWildWeight_Description>
+
+
+  <BM_EnemyMountChance_Title>Chance de montura por colono enemigo</BM_EnemyMountChance_Title>
+  <BM_EnemyMountChance_Description>Posibilidad de que un colono enemigo lo monte durante una incursión</BM_EnemyMountChance_Description>
+  <BM_EnemyMountChanceTribal_Title>Enemigo tribal posibilidad de montaje</BM_EnemyMountChanceTribal_Title>
+  <BM_EnemyMountChanceTribal_Description>Posibilidad de que un colono enemigo tribal lo monte durante una incursión</BM_EnemyMountChanceTribal_Description>
+  <BM_AccuracyPenalty_Title>Penalización de puntería</BM_AccuracyPenalty_Title>
+  <BM_AccuracyPenalty_Description>Penalización de puntería cuando los personajes están montados</BM_AccuracyPenalty_Description>
+  <BM_SizeOk>Montable</BM_SizeOk>
+  <BM_SizeNotOk>No Montable</BM_SizeNotOk>
+  <BM_DrawFront>Animal al frente</BM_DrawFront>
+  <BM_DrawBack>Animal detrás del personaje</BM_DrawBack>
+  <BM_NotInModOptions>No se puede montar, el animal no está permitido en el mod</BM_NotInModOptions>
+  <BM_AnimalBusy>No se puede montar, el animal está ocupado</BM_AnimalBusy>
+  <BM_NotFullyGrown>No se puede montar, el animal no ha crecido lo suficiente</BM_NotFullyGrown>
+  <BM_NeedsObedience>No se puede montar, el animal necesita el entrenamiento de obediencia</BM_NeedsObedience>
+  <BM_Mount>Montar</BM_Mount>
+  <BM_Dismount>Desmontar</BM_Dismount>
+
+</LanguageData>
