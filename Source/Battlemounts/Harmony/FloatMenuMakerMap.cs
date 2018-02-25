@@ -9,6 +9,7 @@ using Verse;
 using Verse.AI;
 using GiddyUpCore;
 using GiddyUpCore.Jobs;
+using GiddyUpCore.Utilities;
 
 namespace BattleMounts.Harmony
 {
@@ -30,9 +31,9 @@ namespace BattleMounts.Harmony
 
                 if (pawnData.mount == null )
                 {
-                    AnimalRecord value;
-                    bool found = GiddyUpCore.Base.animalSelecter.Value.InnerList.TryGetValue(animal.def.defName, out value);
-                    if (found && !value.isSelected)
+                    bool canMount = IsMountableUtility.isMountable(animal, out IsMountableUtility.Reason reason);
+
+                    if (!canMount && reason == IsMountableUtility.Reason.NotInModOptions)
                     {
                         opts.Add(new FloatMenuOption("BM_NotInModOptions".Translate(), null, MenuOptionPriority.Low));
                         return;
@@ -49,12 +50,12 @@ namespace BattleMounts.Harmony
                         opts.Add(new FloatMenuOption("BM_AnimalBusy".Translate(), null, MenuOptionPriority.Low));
                         return;
                     }
-                    if (animal.ageTracker.CurLifeStageIndex != animal.RaceProps.lifeStageAges.Count - 1)
+                    if (!canMount && reason == IsMountableUtility.Reason.NotFullyGrown)
                     {
                         opts.Add(new FloatMenuOption("BM_NotFullyGrown".Translate(), null, MenuOptionPriority.Low));
                         return;
                     }
-                    if(!(animal.training != null && animal.training.IsCompleted(TrainableDefOf.Obedience)))
+                    if(!canMount && reason == IsMountableUtility.Reason.NeedsObedience)
                     {
                         opts.Add(new FloatMenuOption("BM_NeedsObedience".Translate(), null, MenuOptionPriority.Low));
                         return;
