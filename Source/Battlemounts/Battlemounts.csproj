@@ -64,7 +64,7 @@
     <Compile Include="Harmony\IncidentWorker_Ambush_DoExecute.cs" />
     <Compile Include="Harmony\IncidentWorker_Raid_TryExecuteWorker.cs" />
     <Compile Include="Harmony\Jobdriver_Cleanup.cs" />
-    <Compile Include="Harmony\Pawn_JobTracker_StartJob.cs" />
+    <Compile Include="Harmony\Pawn_JobTracker.cs" />
     <Compile Include="Harmony\FloatMenuMakerMap.cs" />
     <Compile Include="Harmony\Projectile_Launch.cs" />
     <Compile Include="Harmony\ShieldBelt_DrawWornExtras.cs" />

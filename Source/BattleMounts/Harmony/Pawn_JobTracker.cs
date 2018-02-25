@@ -1,5 +1,7 @@
 ﻿using GiddyUpCore.Jobs;
+using GiddyUpCore.Storage;
 using Harmony;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +18,14 @@ namespace BattleMounts.Harmony
 
         static bool Prefix(Pawn_JobTracker __instance)
         {
-            if (__instance.curDriver!= null && __instance.curDriver.pawn != null && __instance.curDriver.pawn.CurJob != null && __instance.curDriver.pawn.CurJob.def == GUC_JobDefOf.Mounted)
+            if (__instance.curDriver != null && __instance.curDriver.pawn != null && __instance.curDriver.pawn.CurJob != null && __instance.curDriver.pawn.CurJob.def == GUC_JobDefOf.Mounted)
             {
                 return false;
             }
             return true;
         }
     }
+
 }
+
 
