@@ -68,7 +68,7 @@ namespace BattleMounts.Harmony
                         jobRider.count = 1;
                         pawn.jobs.TryTakeOrderedJob(jobRider);
                     };
-                    opts.Add(new FloatMenuOption("BM_Mount".Translate(), action, MenuOptionPriority.Low));
+                    opts.Add(new FloatMenuOption("BM_Mount".Translate() + " " + animal.Name, action, MenuOptionPriority.Low));
 
                 }
                 else if(animal == pawnData.mount)
