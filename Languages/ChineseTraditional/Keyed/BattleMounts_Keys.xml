@@ -6,12 +6,6 @@
   <BM_SizeNotOk>不可騎乘的</BM_SizeNotOk>
   <BM_DrawFront>動物的貼圖在前</BM_DrawFront>
   <BM_DrawBack>人的貼圖在前</BM_DrawBack>
-  <BM_NotInModOptions>不能騎乘，這個動物在mod中沒有被設定為可騎乘動物</BM_NotInModOptions>
-  <BM_AnimalBusy>不能騎乘，這個動物正在做其他事</BM_AnimalBusy>
-  <BM_NotFullyGrown>不能騎乘, 這個動物還沒有成熟</BM_NotFullyGrown>
-  <BM_NeedsObedience>不能騎乘, 動物沒有訓練“服從”</BM_NeedsObedience>
-  <BM_Mount>乘騎動物</BM_Mount>
-  <BM_Dismount>從動物身上下來</BM_Dismount>
   <GUC_AccuracyPenalty_Description>射擊精度懲罰</GUC_AccuracyPenalty_Description>
   
    <BM_HandlingAccuracyImpact_Title>每級馴獸技能所影響的射擊精度(%)</BM_HandlingAccuracyImpact_Title>

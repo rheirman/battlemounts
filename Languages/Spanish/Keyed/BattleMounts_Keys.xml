@@ -24,11 +24,6 @@
   <BM_SizeNotOk>No Montable</BM_SizeNotOk>
   <BM_DrawFront>Animal al frente</BM_DrawFront>
   <BM_DrawBack>Animal detrás del personaje</BM_DrawBack>
-  <BM_NotInModOptions>No se puede montar, el animal no está permitido en el mod</BM_NotInModOptions>
-  <BM_AnimalBusy>No se puede montar, el animal está ocupado</BM_AnimalBusy>
-  <BM_NotFullyGrown>No se puede montar, el animal no ha crecido lo suficiente</BM_NotFullyGrown>
-  <BM_NeedsObedience>No se puede montar, el animal necesita el entrenamiento de obediencia</BM_NeedsObedience>
-  <BM_Mount>Montar</BM_Mount>
-  <BM_Dismount>Desmontar</BM_Dismount>
+
 
 </LanguageData>

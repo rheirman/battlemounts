@@ -23,10 +23,6 @@
  <BM_SizeNotOk>Not Mountable</BM_SizeNotOk>
  <BM_DrawFront>Animal in front</BM_DrawFront>
  <BM_DrawBack>Animal behind pawn</BM_DrawBack>
- <BM_NotInModOptions>Cannot mount, animal not allowed in mod options</BM_NotInModOptions>
- <BM_AnimalBusy>Cannot mount, animal busy</BM_AnimalBusy>
- <BM_NotFullyGrown>Cannot mount, animal not fully grown</BM_NotFullyGrown>
- <BM_NeedsObedience>Cannot mount, animal needs obedience training</BM_NeedsObedience>
- <BM_Mount>Mount</BM_Mount>
- <BM_Dismount>Dismount</BM_Dismount>
+ 
+
 </LanguageData>

@@ -22,6 +22,13 @@ namespace Battlemounts.Utilities
                 return;
             }
             NPCMountUtility.generateMounts(ref list, parms, Base.inBiomeWeight, Base.outBiomeWeight, Base.nonWildWeight, Base.enemyMountChance, Base.enemyMountChanceTribal);
+            foreach(Pawn pawn in list)
+            {
+                if(pawn.equipment == null)
+                {
+                    pawn.equipment = new Pawn_EquipmentTracker(pawn);
+                }
+            }
         }
     }
 }

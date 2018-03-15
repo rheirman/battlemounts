@@ -11,10 +11,5 @@
  <BM_SizeNotOk>Nicht reitbar</BM_SizeNotOk>
  <BM_DrawFront>Tier im Vordergrund</BM_DrawFront>
  <BM_DrawBack>Tier im Hintergrund</BM_DrawBack>
- <BM_NotInModOptions>Aufsteigen nicht möglich, Tier in Mod-Einstellungen verboten</BM_NotInModOptions>
- <BM_AnimalBusy>Aufsteigen nicht möglich, Tier beschäftigt</BM_AnimalBusy>
- <BM_NotFullyGrown>Aufsteigen nicht möglich, Tier nicht ausgewachsen</BM_NotFullyGrown>
- <BM_NeedsObedience>Aufsteigen nicht möglich, Tier nicht 'Gehorsam'</BM_NeedsObedience>
- <BM_Mount>Aufsteigen</BM_Mount>
- <BM_Dismount>Absteigen</BM_Dismount>
+
 </LanguageData>
