@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+ <BM_HandlingAccuracyImpact_Title>동물 탑승 스킬 레벨에 따른 정확도(%)</BM_HandlingAccuracyImpact_Title>
+ <BM_HandlingAccuracyImpact_Description>만일 동물 탑승 레벨이 길들이는데 필요한 수준보다 낮다면, 레벨당 패널티가 되며 그보다 높을 경우 보너스가 됩니다.</BM_HandlingAccuracyImpact_Description>  
+ <BM_InBiomeWeight_Title>적의 탈 것이 플레이어 기후환경의 동물인 확률</BM_InBiomeWeight_Title>
+ <BM_InBiomeWeight_Description>적대적인 림이 사용하는 탈것이 플레이어 기후환경의 동물인 확률.
+ 합계가 100 %가 아닌 경우, 확률은 100 %로 수정됩니다.</BM_InBiomeWeight_Description>
+ <BM_OutBiomeWeight_Title>적이 사용하는 탈것이 다른 기후환경의 동물인 확률.</BM_OutBiomeWeight_Title>
+ <BM_OutBiomeWeight_Description>적대적인 림이 사용하는 탈것이 다른 기후환경의 동물인 확률.
+ 합계가 100 %가 아닌 경우, 확률은 100 %로 수정됩니다.</BM_OutBiomeWeight_Description>
+ <BM_NonWildWeight_Title>적이 사용하는 탈것이 길들여진 동물인 확률.</BM_NonWildWeight_Title>
+ <BM_NonWildWeight_Description>적대적인 림이 사용하는 탈것이 길들여진 동물인 확률.
+ 합계가 100 %가 아닌 경우, 확률은 100 %로 수정됩니다.</BM_NonWildWeight_Description>
+ 
+ 
+ <BM_EnemyMountChance_Title>적대적 림의 탑승 확률</BM_EnemyMountChance_Title>
+ <BM_EnemyMountChance_Description>적대적인 림이 습격할 때 탑승물을 타고 등장할 확률</BM_EnemyMountChance_Description>
+ <BM_EnemyMountChanceTribal_Title>적대적인 부족림의 탑승 확률</BM_EnemyMountChanceTribal_Title>
+ <BM_EnemyMountChanceTribal_Description>적대적인 부족 림이 습격할 때 탑승물을 타고 등장할 확률</BM_EnemyMountChanceTribal_Description>
  <BM_AccuracyPenalty_Title>정확도 패널티</BM_AccuracyPenalty_Title>
  <BM_AccuracyPenalty_Description>탑승시 정확도 패널티</BM_AccuracyPenalty_Description>
  <BM_SizeOk>탑승 가능</BM_SizeOk>
  <BM_SizeNotOk>탑승 불가</BM_SizeNotOk>
  <BM_DrawFront>동물이 앞쪽에</BM_DrawFront>
  <BM_DrawBack>동물이 뒤쪽에</BM_DrawBack>
- <BM_NotInModOptions>탑승 불가, 모드 옵션 에서 허용 해야 함.</BM_NotInModOptions>
- <BM_AnimalBusy>동물이 무언가 진행 중이라 탑승 할 수 없습니다.</BM_AnimalBusy>
- <BM_NotFullyGrown>탑승 하려면 더 자라야 합니다.</BM_NotFullyGrown>
- <BM_NeedsObedience>탑승 하기 위해 복종 훈련이 필요</BM_NeedsObedience>
- <BM_Mount>올라타기</BM_Mount>
- <BM_Dismount>내리기</BM_Dismount>
+
 </LanguageData>
