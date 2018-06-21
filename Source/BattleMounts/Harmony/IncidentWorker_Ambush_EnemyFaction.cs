@@ -13,9 +13,15 @@ using Verse;
 
 namespace Battlemounts.Harmony
 {
-        [HarmonyPatch(typeof(IncidentWorker_Ambush), "DoExecute")]
-        static class IncidentWorker_Ambush_DoExecute
+    [HarmonyPatch(typeof(RimWorld.IncidentWorker_Ambush_EnemyFaction), "GeneratePawns")]
+    static class IncidentWorker_Ambush_EnemyFaction_GeneratePawns
+    {
+        static void Postfix(IncidentParms parms, ref List<Pawn> __result)
         {
+            EnemyMountUtility.mountAnimals(ref __result, parms);
+        }
+
+        /*
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var instructionsList = new List<CodeInstruction>(instructions);
@@ -35,5 +41,6 @@ namespace Battlemounts.Harmony
             }
 
         }
+        */
     }
 }

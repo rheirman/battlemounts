@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\..\HugsLib18\Assemblies\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\1417078111\Assemblies\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
@@ -43,7 +43,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="HugsLib">
-      <HintPath>..\..\..\HugsLib18\Assemblies\HugsLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\1417078111\Assemblies\HugsLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -61,8 +61,8 @@
     <Compile Include="Base.cs" />
     <Compile Include="Concepts\BM_ConceptDefOf.cs" />
     <Compile Include="Harmony\GenDraw_DrawAimPie.cs" />
-    <Compile Include="Harmony\IncidentWorker_Ambush_DoExecute.cs" />
-    <Compile Include="Harmony\IncidentWorker_Raid_TryExecuteWorker.cs" />
+    <Compile Include="Harmony\IncidentWorker_Ambush_EnemyFaction.cs" />
+    <Compile Include="Harmony\IncidentWorker_Raid.cs" />
     <Compile Include="Harmony\Jobdriver_Cleanup.cs" />
     <Compile Include="Harmony\Pawn_JobTracker.cs" />
     <Compile Include="Harmony\FloatMenuMakerMap.cs" />

@@ -11,7 +11,7 @@ namespace BattleMounts.Harmony
 {
 
     [HarmonyPatch(typeof(Projectile), "Launch")]
-    [HarmonyPatch(new Type[] { typeof(Thing), typeof(Vector3), typeof(LocalTargetInfo), typeof(Thing), typeof(Thing) })]
+    [HarmonyPatch(new Type[] { typeof(Thing), typeof(Vector3), typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(ProjectileHitFlags), typeof(Thing), typeof(ThingDef) })]
     static class Projectile_Launch
     {
         static void Prefix(ref Thing launcher, ref Vector3 origin)

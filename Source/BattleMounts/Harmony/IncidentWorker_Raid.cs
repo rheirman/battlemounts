@@ -30,18 +30,16 @@ namespace Battlemounts.Harmony
                 if (instructionsList[i].operand == AccessTools.Method(typeof(IncidentWorker_Raid), "GetLetterLabel")) //Identifier for which IL line to inject to
                 {
                     //Start of injection
-                    yield return new CodeInstruction(OpCodes.Ldloca_S, 2);//load generated pawns as parameter
+                    yield return new CodeInstruction(OpCodes.Ldloca_S, 3);//load generated pawns as parameter
                     yield return new CodeInstruction(OpCodes.Ldarg_1);//load incidentparms as parameter
                     yield return new CodeInstruction(OpCodes.Call, typeof(EnemyMountUtility).GetMethod("mountAnimals"));//Injected code
-                    //yield return new CodeInstruction(OpCodes.Stloc_2);
                 }
 
-                if (i > 0 && instructionsList[i - 1].operand == AccessTools.Method(typeof(LordMaker), "MakeNewLord")) //Identifier for which IL line to inject to
+                if (i > 0 && instructionsList[i].operand == AccessTools.Method(typeof(RaidStrategyWorker), "MakeLords")) //Identifier for which IL line to inject to
                 {
                     //Start of injection
-                    yield return new CodeInstruction(OpCodes.Ldloca_S, 2);//load generated pawns as parameter
+                    yield return new CodeInstruction(OpCodes.Ldloca_S, 3);//load generated pawns as parameter
                     yield return new CodeInstruction(OpCodes.Call, typeof(IncidentWorker_Raid_TryExecuteWorker).GetMethod("removeAnimals"));//Injected code
-                    //yield return new CodeInstruction(OpCodes.Stloc_2);
                 }
 
             }

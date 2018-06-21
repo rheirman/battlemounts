@@ -17,11 +17,12 @@ namespace Battlemounts.Utilities
     {
         public static void mountAnimals(ref List<Pawn> list, IncidentParms parms)
         {
-            if (list.Count == 0 || !(parms.raidArrivalMode == PawnsArriveMode.EdgeWalkIn || parms.raidArrivalMode == PawnsArriveMode.Undecided) || (parms.raidStrategy != null && parms.raidStrategy.workerClass == typeof(RaidStrategyWorker_Siege)))
+            if (list.Count == 0 || !(parms.raidArrivalMode == PawnsArrivalModeDefOf.EdgeWalkIn) || (parms.raidStrategy != null && parms.raidStrategy.workerClass == typeof(RaidStrategyWorker_Siege)))
             {
                 return;
             }
             NPCMountUtility.generateMounts(ref list, parms, Base.inBiomeWeight, Base.outBiomeWeight, Base.nonWildWeight, Base.enemyMountChance, Base.enemyMountChanceTribal);
+            
             foreach(Pawn pawn in list)
             {
                 if(pawn.equipment == null)
@@ -29,6 +30,7 @@ namespace Battlemounts.Utilities
                     pawn.equipment = new Pawn_EquipmentTracker(pawn);
                 }
             }
+            
         }
     }
 }
