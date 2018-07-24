@@ -16,7 +16,7 @@ namespace BattleMounts.Jobs
 {
     public class JobDriver_Mount_BattleMount : JobDriver
     {
-        public override bool TryMakePreToilReservations()
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             return true;
         }

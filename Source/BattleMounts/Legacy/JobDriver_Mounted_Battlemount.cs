@@ -26,7 +26,7 @@ namespace BattleMounts.Jobs
             yield return waitForRider();
             yield return delegateMovement();
         }
-        public override bool TryMakePreToilReservations()
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             return true;
         }
