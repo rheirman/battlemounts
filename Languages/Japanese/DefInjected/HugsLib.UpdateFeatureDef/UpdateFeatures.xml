@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
+	<BattleMounts_0_18_3.modNameReadable>Giddy-up Battle Mounts</BattleMounts_0_18_3.modNameReadable>
 	<BattleMounts_0_18_3.content>Giddy-up Battle Mountsが更新されて、以下の変更追加されました：
 
 ・敵のポーンは、襲撃や待ち伏せ攻撃の際にも騎乗して来るようになりました！
@@ -9,6 +10,7 @@
 ・騎乗が中断されたときに、騎乗が原因でテレポートすることがあった問題を修正しました。
 	</BattleMounts_0_18_3.content>
 
+	<BattleMounts_0_18_4.modNameReadable>Giddy-up Battle Mounts</BattleMounts_0_18_4.modNameReadable>
 	<BattleMounts_0_18_4.content>Giddy-up Battle Mountsが更新されて、以下の変更追加されました： 
 ・野生動物の気候別の種類と敵ポーンの動物スキルレベルを考慮して、敵の騎乗動物を選択するアルゴリズムが改善されました。
 ・敵のポーンは、今現在彼らが攻撃している気候では見つからない動物が選択されたり、野生には生息していない動物も騎乗する動物として選択されるようになりました。それらの動物が騎乗対象として使用される確率は、modオプションで設定できます。
