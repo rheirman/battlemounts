@@ -16,6 +16,7 @@ namespace BattleMounts.Harmony
     static class Pawn_JobTracker_StartJob
     {
 
+        /*
         static bool Prefix(Pawn_JobTracker __instance)
         {
             if (__instance.curDriver != null && __instance.curDriver.pawn != null && __instance.curDriver.pawn.CurJob != null && __instance.curDriver.pawn.CurJob.def == GUC_JobDefOf.Mounted)
@@ -24,6 +25,7 @@ namespace BattleMounts.Harmony
             }
             return true;
         }
+        */
     }
 
 }

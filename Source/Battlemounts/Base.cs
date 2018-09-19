@@ -16,8 +16,6 @@ namespace BattleMounts
     public class Base : ModBase
     {
         internal static Base Instance { get; private set; }
-        internal static SettingHandle<int> accuracyPenalty;
-        internal static SettingHandle<float> handlingAccuracyImpact;
 
         internal static SettingHandle<int> enemyMountChance;
         internal static SettingHandle<int> enemyMountChanceTribal;
@@ -40,8 +38,6 @@ namespace BattleMounts
         public override void DefsLoaded()
         {
             base.DefsLoaded();
-            accuracyPenalty = Settings.GetHandle<int>("accuracyPenalty", "BM_AccuracyPenalty_Title".Translate(), "BM_AccuracyPenalty_Description".Translate(), 10, Validators.IntRangeValidator(minPercentage, maxPercentage));
-            handlingAccuracyImpact = Settings.GetHandle<float>("handlingAccuracyImpact", "BM_HandlingAccuracyImpact_Title".Translate(), "BM_HandlingAccuracyImpact_Description".Translate(), 0.5f, Validators.FloatRangeValidator(0f, 2f));
 
             enemyMountChance = Settings.GetHandle<int>("enemyMountChance", "BM_EnemyMountChance_Title".Translate(), "BM_EnemyMountChance_Description".Translate(), 20, Validators.IntRangeValidator(minPercentage, maxPercentage));
             enemyMountChanceTribal = Settings.GetHandle<int>("enemyMountChanceTribal", "BM_EnemyMountChanceTribal_Title".Translate(), "BM_EnemyMountChanceTribal_Description".Translate(), 40, Validators.IntRangeValidator(minPercentage, maxPercentage));
