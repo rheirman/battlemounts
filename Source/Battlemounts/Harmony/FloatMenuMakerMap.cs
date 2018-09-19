@@ -19,10 +19,7 @@ namespace BattleMounts.Harmony
     {
         static void Postfix(Vector3 clickPos, Pawn pawn, List<FloatMenuOption> opts)
         {
-            if (pawn.RaceProps.Animal)
-            {
                 GUC_FloatMenuUtility.AddMountingOptions(clickPos, pawn, opts);
-            }
         }
     }
 }
