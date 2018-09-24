@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <BM_HandlingAccuracyImpact_Title>每級馴獸技能所影響的射擊精度(%)</BM_HandlingAccuracyImpact_Title>
-  <BM_HandlingAccuracyImpact_Description>騎乘者技能低於所需等級時的懲罰，或高於所需等級時的獎勵</BM_HandlingAccuracyImpact_Description>
+
+
   <BM_InBiomeWeight_Title>敵軍的坐騎是該生態動物的機率</BM_InBiomeWeight_Title>
   <BM_InBiomeWeight_Description>敵軍動物從全部可乘騎動物中隨機篩選的機率</BM_InBiomeWeight_Description>
   <BM_OutBiomeWeight_Title>敵軍坐騎隨機的機率</BM_OutBiomeWeight_Title>
@@ -14,8 +14,7 @@
   <BM_EnemyMountChance_Description>襲擊時敵軍士兵騎乘動物的機率。</BM_EnemyMountChance_Description>
   <BM_EnemyMountChanceTribal_Title>部落敵人騎行的機會</BM_EnemyMountChanceTribal_Title>
   <BM_EnemyMountChanceTribal_Description>部落敵人襲擊時士兵騎乘動物的機率</BM_EnemyMountChanceTribal_Description>
-  <BM_AccuracyPenalty_Title>射擊精度懲罰</BM_AccuracyPenalty_Title>
-  <BM_AccuracyPenalty_Description>當人騎乘時射擊精度受到的懲罰</BM_AccuracyPenalty_Description>
+
   <BM_SizeOk>可騎乘的</BM_SizeOk>
   <BM_SizeNotOk>不可騎乘的</BM_SizeNotOk>
   <BM_DrawFront>動物的貼圖在前</BM_DrawFront>

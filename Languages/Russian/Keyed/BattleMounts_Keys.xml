@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
- <BM_HandlingAccuracyImpact_Title>Изменение шанса попадания(%) за уровень животноводства</BM_HandlingAccuracyImpact_Title>
- <BM_HandlingAccuracyImpact_Description>Если навык животноводства наездника ниже уровня, требуемого для приручения животного - это штраф за уровень разницы. Если навык выше - это бонус за уровень разницы.</BM_HandlingAccuracyImpact_Description>  
+
  <BM_InBiomeWeight_Title>Шанс ездового животного врага из вашего биома</BM_InBiomeWeight_Title>
  <BM_InBiomeWeight_Description>Шанс того, что животное, верхом на котором прибудет враг, встречается в местном биоме.
  Шансы нормализуются до 100% если их сумма не равна 100</BM_InBiomeWeight_Description>
@@ -17,8 +16,6 @@
  <BM_EnemyMountChance_Description>Шанс того, что боец противника прибудет на рейд верхом</BM_EnemyMountChance_Description>
  <BM_EnemyMountChanceTribal_Title>Шанс появления вражеского аборигена-наездника</BM_EnemyMountChanceTribal_Title>
  <BM_EnemyMountChanceTribal_Description>Шанс того, что боец враждебного племени прибудет на рейд верхом</BM_EnemyMountChanceTribal_Description>
- <BM_AccuracyPenalty_Title>Штраф к меткости</BM_AccuracyPenalty_Title>
- <BM_AccuracyPenalty_Description>Штраф к меткости атак наездника</BM_AccuracyPenalty_Description>
  <BM_SizeOk>Седлаемое</BM_SizeOk>
  <BM_SizeNotOk>Не Седлаемое</BM_SizeNotOk>
  <BM_DrawFront>Животное спереди</BM_DrawFront>

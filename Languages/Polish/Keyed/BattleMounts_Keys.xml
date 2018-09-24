@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
- <BM_HandlingAccuracyImpact_Title>Wpływ celności(%) za każdy poziom umięjętności oswajania</BM_HandlingAccuracyImpact_Title>
- <BM_HandlingAccuracyImpact_Description>Jeżeli poziom oswajania u kolonisty jest poniżej poziomu wymaganego do oswojenia zwierzęcia, zostanie nadana kara za każdy poziom poniżej wymogu. W przeciwnym wypadku nadawany jest bonus za każdy poziom ponad wymóg.</BM_HandlingAccuracyImpact_Description>  
+ 
  <BM_InBiomeWeight_Title>Szansa na wrogiego wierzchowca z Twojego biomu</BM_InBiomeWeight_Title>
  <BM_InBiomeWeight_Description>Wartość przedstawia szanse na pojawienie się wrogiego wierchowca który będzie zwierzięciem występującym w Twoim biomie.
  Szanse określane są od 0 do 100</BM_InBiomeWeight_Description>
@@ -12,13 +11,11 @@
  <BM_NonWildWeight_Description>Wartość przedstawia szanse na pojawienie się wrogiego wierchowca który będzie zwierzięciem niewystępującym w dziczy.
  Szanse określane są od 0 do 100</BM_NonWildWeight_Description>
  
- 
  <BM_EnemyMountChance_Title>Szansa na wrogiego wierzchowca</BM_EnemyMountChance_Title>
  <BM_EnemyMountChance_Description>Wartość ta określa szanse na pojawienie się wroga na wierzchowcu podczas ataku</BM_EnemyMountChance_Description>
  <BM_EnemyMountChanceTribal_Title>Szansa nas wrogiego plemiennego wierzchowca</BM_EnemyMountChanceTribal_Title>
  <BM_EnemyMountChanceTribal_Description>Wartość ta określa szanse na pojawienie się plemiennego wroga na wierzchowcu podczas ataku</BM_EnemyMountChanceTribal_Description>
- <BM_AccuracyPenalty_Title>Kara do celności</BM_AccuracyPenalty_Title>
- <BM_AccuracyPenalty_Description>Kara do celności kiedy kolonista jest na wierzchowcu</BM_AccuracyPenalty_Description>
+
  <BM_SizeOk>Możliwe do ujeżdżania</BM_SizeOk>
  <BM_SizeNotOk>Nie możliwe do ujeżdżania</BM_SizeNotOk>
  <BM_DrawFront>Zwierze przed kolonistą</BM_DrawFront>

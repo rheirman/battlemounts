@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <BM_HandlingAccuracyImpact_Title>Incidence sur la précision (%) par niveau dans la compétence "Animaux"</BM_HandlingAccuracyImpact_Title>
-  <BM_HandlingAccuracyImpact_Description>Si la compétence "Animaux" d'un colon est inférieure au niveau nécessaire pour apprivoiser l'animal, ceci est une pénalité par niveau. Sinon, c'est un bonus par niveau.</BM_HandlingAccuracyImpact_Description>
+
   <BM_InBiomeWeight_Title>Probabilités qu'une monture ennemie soit native de votre biome</BM_InBiomeWeight_Title>
   <BM_InBiomeWeight_Description>La chance qu'une monture ennemie soit native du biome actuel. Les probabilités seront normalisées à 100 si la somme n'est pas de 100</BM_InBiomeWeight_Description>
   <BM_OutBiomeWeight_Title>Probabilités qu'une monture ennemie soit native de n'importe quel biome</BM_OutBiomeWeight_Title>
@@ -13,8 +12,7 @@
   <BM_EnemyMountChance_Description>Chance qu'un ennemi ait une monture pendant un raid</BM_EnemyMountChance_Description>
   <BM_EnemyMountChanceTribal_Title>Chance qu'un ennemi tribal ait une monture</BM_EnemyMountChanceTribal_Title>
   <BM_EnemyMountChanceTribal_Description>Chance qu'un ennemi tribal ait une monture pendant un raid</BM_EnemyMountChanceTribal_Description>
-  <BM_AccuracyPenalty_Title>Pénalité de précision</BM_AccuracyPenalty_Title>
-  <BM_AccuracyPenalty_Description>Pénalité de précision lorsque des personnages sont montés</BM_AccuracyPenalty_Description>
+
   <BM_SizeOk>Montable</BM_SizeOk>
   <BM_SizeNotOk>Non montable</BM_SizeNotOk>
   <BM_DrawFront>Animal devant</BM_DrawFront>

@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <BM_HandlingAccuracyImpact_Title>Impacto de precisión(%) por nivel de manejo de animales</BM_HandlingAccuracyImpact_Title>
-  <BM_HandlingAccuracyImpact_Description>Si la habilidad de manejo del animal de un colono está por debajo del nivel que se necesitaría para domar al animal, esta es una penalización por nivel. De lo contrario, es una bonificación por nivel.</BM_HandlingAccuracyImpact_Description>
+
   <BM_InBiomeWeight_Title>Posibilidad de montura enemiga de tu bioma</BM_InBiomeWeight_Title>
   <BM_InBiomeWeight_Description>La posibilidad de que una montura utilizada por un colono enemigo sea una de tu bioma.
  Las posibilidades se normalizan a 100% si la suma no es 100</BM_InBiomeWeight_Description>
@@ -18,8 +17,6 @@
   <BM_EnemyMountChance_Description>Posibilidad de que un colono enemigo lo monte durante una incursión</BM_EnemyMountChance_Description>
   <BM_EnemyMountChanceTribal_Title>Enemigo tribal posibilidad de montaje</BM_EnemyMountChanceTribal_Title>
   <BM_EnemyMountChanceTribal_Description>Posibilidad de que un colono enemigo tribal lo monte durante una incursión</BM_EnemyMountChanceTribal_Description>
-  <BM_AccuracyPenalty_Title>Penalización de puntería</BM_AccuracyPenalty_Title>
-  <BM_AccuracyPenalty_Description>Penalización de puntería cuando los personajes están montados</BM_AccuracyPenalty_Description>
   <BM_SizeOk>Montable</BM_SizeOk>
   <BM_SizeNotOk>No Montable</BM_SizeNotOk>
   <BM_DrawFront>Animal al frente</BM_DrawFront>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
- <BM_HandlingAccuracyImpact_Title>Einfluss auf Genauigkeit(%) pro Stufe in Tierpflege</BM_HandlingAccuracyImpact_Title>
- <BM_HandlingAccuracyImpact_Description>Wenn die Fähigkeit Tierpflege unter der benötigten Stufe ist, um ein Tier zu Zähmen, ist dies ein Malus pro Stufe. Ansonsten ein Bonus pro Stufe.</BM_HandlingAccuracyImpact_Description>  
+ 
  <BM_InBiomeWeight_Title>Gegnerische Reittiere aus deinem Biom</BM_InBiomeWeight_Title>
  <BM_InBiomeWeight_Description>Die Chance, dass das Reittier, dass dein Gegner reitet, aus deinem Biom ist.
  Chancen werden auf 100% normalisiert, wenn die Summe nicht 100 ergibt.</BM_InBiomeWeight_Description>
@@ -17,8 +16,7 @@
  <BM_EnemyMountChance_Description>Chance, dass ein Gegner bei einem Angriff ein Tier reitet.</BM_EnemyMountChance_Description>
  <BM_EnemyMountChanceTribal_Title>Chance für berittene Stammesmitglieder</BM_EnemyMountChanceTribal_Title>
  <BM_EnemyMountChanceTribal_Description>Chance, dass ein Stammesmitglied bei einem Angriff ein Tier reitet.</BM_EnemyMountChanceTribal_Description>
- <BM_AccuracyPenalty_Title>Genauigkeitsmalus</BM_AccuracyPenalty_Title>
- <BM_AccuracyPenalty_Description>Genauigkeitsmalus für berittene Kolonisten</BM_AccuracyPenalty_Description>
+
  <BM_SizeOk>Reitbar</BM_SizeOk>
  <BM_SizeNotOk>Nicht reitbar</BM_SizeNotOk>
  <BM_DrawFront>Tier im Vordergrund</BM_DrawFront>

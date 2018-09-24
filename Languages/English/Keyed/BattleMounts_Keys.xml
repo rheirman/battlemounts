@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
- <BM_HandlingAccuracyImpact_Title>Accuracy impact(%) per animal handling level</BM_HandlingAccuracyImpact_Title>
- <BM_HandlingAccuracyImpact_Description>If the animal handling skill of a pawn is below the level that would be needed to tame the animal, this is a per level-penalty. Otherwise it is a per-level bonus.</BM_HandlingAccuracyImpact_Description>  
  <BM_InBiomeWeight_Title>Enemy mount from your biome chance</BM_InBiomeWeight_Title>
  <BM_InBiomeWeight_Description>The chance a mount used by an enemy pawn is one from your biome.
  Chances are normalized to 100 if the sum is not 100</BM_InBiomeWeight_Description>
