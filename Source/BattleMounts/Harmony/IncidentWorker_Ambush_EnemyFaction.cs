@@ -13,8 +13,8 @@ using Verse;
 
 namespace Battlemounts.Harmony
 {
-    [HarmonyPatch(typeof(IncidentWorker_Ambush_EnemyFaction), "DoExecute")]
-    static class IncidentWorker_Ambush_EnemyFaction_GeneratePawns
+    [HarmonyPatch(typeof(IncidentWorker_Ambush), "DoExecute")]
+    static class IncidentWorker_Ambush_DoExecute
     {
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
