@@ -1,4 +1,5 @@
 ﻿using Battlemounts.Utilities;
+using BattleMounts;
 using GiddyUpCore.Utilities;
 using Harmony;
 using RimWorld;
@@ -23,31 +24,61 @@ namespace Battlemounts.Harmony
             for (var i = 0; i < instructionsList.Count; i++)
             {
                 CodeInstruction instruction = instructionsList[i];
-                yield return instruction;
-                //Log.Message(instructionsList[i].opcode.ToString());
-                //Log.Message(instructionsList[i].operand as String);
 
-                if (instructionsList[i].operand == AccessTools.Method(typeof(IncidentWorker_Raid), "GetLetterLabel")) //Identifier for which IL line to inject to
+                if(instruction.operand == AccessTools.Method(typeof(PawnsArrivalModeWorker), "Arrive"))
                 {
-                    //Start of injection
-                    yield return new CodeInstruction(OpCodes.Ldloca_S, 3);//load generated pawns as parameter
-                    yield return new CodeInstruction(OpCodes.Ldarg_1);//load incidentparms as parameter
-                    yield return new CodeInstruction(OpCodes.Call, typeof(EnemyMountUtility).GetMethod("mountAnimals"));//Injected code
+                    yield return new CodeInstruction(OpCodes.Call, typeof(IncidentWorker_Raid_TryExecuteWorker).GetMethod("DoNothing"));//don't execute this, execute it in MountAnimals
+                    continue;
                 }
-
-                if (i > 0 && instructionsList[i].operand == AccessTools.Method(typeof(RaidStrategyWorker), "MakeLords")) //Identifier for which IL line to inject to
+                if (instruction.operand == AccessTools.Method(typeof(PawnGroupMakerUtility), "GeneratePawns")) //Identifier for which IL line to inject to
                 {
                     //Start of injection
-                    yield return new CodeInstruction(OpCodes.Ldloca_S, 3);//load generated pawns as parameter
-                    yield return new CodeInstruction(OpCodes.Call, typeof(IncidentWorker_Raid_TryExecuteWorker).GetMethod("removeAnimals"));//Injected code
+                    yield return new CodeInstruction(OpCodes.Ldarg_1);//load incidentparms as parameter
+                    yield return new CodeInstruction(OpCodes.Call, typeof(IncidentWorker_Raid_TryExecuteWorker).GetMethod("MountAnimals"));//replace GeneratePawns by custom code
+                }    
+                /*
+                else if (instructionsList[i].operand == AccessTools.Method(typeof(RaidStrategyWorker), "MakeLords")) //Identifier for which IL line to inject to
+                {
+                    yield return new CodeInstruction(OpCodes.Call, typeof(IncidentWorker_Raid_TryExecuteWorker).GetMethod("RemoveAnimals"));//Injected code
+                } 
+                */
+                else
+                {
+                    yield return instruction;
                 }
 
             }
-
-
         }
 
-        public static void removeAnimals(ref List<Pawn> pawns)
+        public static void DoNothing(List<Pawn> pawns, IncidentParms parms)
+        {
+            //do nothing
+        }
+        public static IEnumerable<Pawn> MountAnimals(PawnGroupMakerParms groupParms, bool warnOnZeroResults, IncidentParms parms)
+        {
+            List<Pawn> list = PawnGroupMakerUtility.GeneratePawns(groupParms, true).ToList();
+            if(list.Count == 0)
+            {
+                return list;
+            }
+            parms.raidArrivalMode.Worker.Arrive(list, parms);
+            if (!(parms.raidArrivalMode == null || parms.raidArrivalMode == PawnsArrivalModeDefOf.EdgeWalkIn) || (parms.raidStrategy != null && parms.raidStrategy.workerClass == typeof(RaidStrategyWorker_Siege)))
+            {
+                return list;
+            }
+            NPCMountUtility.generateMounts(ref list, parms, Base.inBiomeWeight, Base.outBiomeWeight, Base.nonWildWeight, Base.enemyMountChance, Base.enemyMountChanceTribal);
+
+            foreach (Pawn pawn in list)
+            {
+                if (pawn.equipment == null)
+                {
+                    pawn.equipment = new Pawn_EquipmentTracker(pawn);
+                }
+            }
+            return list;
+        }
+
+        public static void RemoveAnimals(IncidentParms parms, ref List<Pawn> pawns)
         {
             List<Pawn> animals = new List<Pawn>();
             foreach (Pawn pawn in pawns)
