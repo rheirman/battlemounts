@@ -35,21 +35,24 @@ namespace Battlemounts.Harmony
                     //Start of injection
                     yield return new CodeInstruction(OpCodes.Ldarg_1);//load incidentparms as parameter
                     yield return new CodeInstruction(OpCodes.Call, typeof(IncidentWorker_Raid_TryExecuteWorker).GetMethod("MountAnimals"));//replace GeneratePawns by custom code
-                }    
-                /*
-                else if (instructionsList[i].operand == AccessTools.Method(typeof(RaidStrategyWorker), "MakeLords")) //Identifier for which IL line to inject to
+                }
+                else if (instructionsList[i].operand == AccessTools.Method(typeof(PlayerKnowledgeDatabase), "IsComplete")) //Prevent teaching about shieldbelts for animals
                 {
-                    yield return new CodeInstruction(OpCodes.Call, typeof(IncidentWorker_Raid_TryExecuteWorker).GetMethod("RemoveAnimals"));//Injected code
-                } 
-                */
+                    yield return new CodeInstruction(OpCodes.Call, typeof(IncidentWorker_Raid_TryExecuteWorker).GetMethod("ReturnTrue"));//Injected code
+                }
                 else
-                {
+                {                          
                     yield return instruction;
+
                 }
 
             }
         }
 
+        public static bool ReturnTrue(ConceptDef conc)
+        {
+            return true;
+        }
         public static void DoNothing(List<Pawn> pawns, IncidentParms parms)
         {
             //do nothing
@@ -75,21 +78,17 @@ namespace Battlemounts.Harmony
                     pawn.equipment = new Pawn_EquipmentTracker(pawn);
                 }
             }
+            foreach(Pawn pawn in list)//Moved this code here so we can check if the pawn actually has apparel. 
+            {
+                if (pawn.apparel != null && pawn.apparel.WornApparel != null && pawn.apparel.WornApparel.Any((Apparel ap) => ap is ShieldBelt))
+                {
+                    LessonAutoActivator.TeachOpportunity(ConceptDefOf.ShieldBelts, OpportunityType.Critical);
+                    break;
+                }
+            }
             return list;
         }
 
-        public static void RemoveAnimals(IncidentParms parms, ref List<Pawn> pawns)
-        {
-            List<Pawn> animals = new List<Pawn>();
-            foreach (Pawn pawn in pawns)
-            {
-                if (pawn.RaceProps.Animal)
-                {
-                    animals.Add(pawn);
-                }
-            }
-            pawns = pawns.Except(animals).ToList();
-        }
 
 
     }
