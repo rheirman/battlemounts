@@ -16,12 +16,11 @@
   <BM_EnemyMountChance_Description>襲撃の際に敵のポーンが騎乗してくる確率です。</BM_EnemyMountChance_Description>
   <BM_EnemyMountChanceTribal_Title>敵(部族派閥)の騎乗確率</BM_EnemyMountChanceTribal_Title>
   <BM_EnemyMountChanceTribal_Description>部族派閥による襲撃の際に敵のポーンが騎乗してくる確率です。</BM_EnemyMountChanceTribal_Description>
-
+  <BM_AccuracyPenalty_Title>命中精度ペナルティ</BM_AccuracyPenalty_Title>
+  <BM_AccuracyPenalty_Description>ポーンが騎乗時している際の命中精度低下ペナルティです。</BM_AccuracyPenalty_Description>
   <BM_SizeOk>騎乗可能</BM_SizeOk>
   <BM_SizeNotOk>騎乗不可</BM_SizeNotOk>
   <BM_DrawFront>動物を前面に表示</BM_DrawFront>
   <BM_DrawBack>動物を背後に表示</BM_DrawBack>
-
-
 
 </LanguageData>
