@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
   <BM_InBiomeWeight_Title>敌军的坐骑是该生态动物的几率</BM_InBiomeWeight_Title>
   <BM_InBiomeWeight_Description>敌军动物从全部可乘骑动物中随机筛选的几率</BM_InBiomeWeight_Description>
   <BM_OutBiomeWeight_Title>敌军坐骑随机的几率</BM_OutBiomeWeight_Title>
@@ -13,17 +12,11 @@
   <BM_EnemyMountChance_Description>袭击时敌军士兵骑乘动物的几率。</BM_EnemyMountChance_Description>
   <BM_EnemyMountChanceTribal_Title>部落敌人骑行的机会</BM_EnemyMountChanceTribal_Title>
   <BM_EnemyMountChanceTribal_Description>部落敌人袭击时士兵骑乘动物的几率</BM_EnemyMountChanceTribal_Description>
-
+  <BM_AccuracyPenalty_Title>精度惩罚</BM_AccuracyPenalty_Title>
+  <BM_AccuracyPenalty_Description>骑乘状态下的射击精度惩罚</BM_AccuracyPenalty_Description>
   <BM_SizeOk>可骑乘的</BM_SizeOk>
   <BM_SizeNotOk>不可骑乘的</BM_SizeNotOk>
   <BM_DrawFront>动物的贴图在前</BM_DrawFront>
   <BM_DrawBack>人的贴图在前</BM_DrawBack>
-  
-
-  <!--<GUC_AccuracyPenalty_Description>射击精度惩罚</GUC_AccuracyPenalty_Description>-->
-  <!--<GUC_Animal_Handling.label>骑乘战斗 驯兽技能影响</GUC_Animal_Handling.label>-->
-  <!--<GUC_Animal_Handling.helpText>乘骑动物时驯兽技能会影响骑乘效果，若低于驯兽所需的等级，每低一级会降低2%的移动速度和0.5%的射击精度。</GUC_Animal_Handling.helpText>-->
-  <!--<GUC_HandlingMovementImpact_Title>每级驯兽技能所影响的移动速度(%)</GUC_HandlingMovementImpact_Title>-->
-  <!--<GUC_HandlingMovementImpact_Description>骑乘者技能低于所需等级时的惩罚，或高于所需等级时的奖励</GUC_HandlingMovementImpact_Description>-->
 
 </LanguageData>
