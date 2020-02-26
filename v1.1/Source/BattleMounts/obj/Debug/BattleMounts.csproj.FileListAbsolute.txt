@@ -1,0 +1,5 @@
+E:\SteamLibrary\steamapps\common\RimWorld\Mods\battlemounts\v1.1\Assemblies\Battlemounts.dll
+E:\SteamLibrary\steamapps\common\RimWorld\Mods\battlemounts\v1.1\Source\BattleMounts\obj\Debug\BattleMounts.csprojAssemblyReference.cache
+E:\SteamLibrary\steamapps\common\RimWorld\Mods\battlemounts\v1.1\Source\BattleMounts\obj\Debug\BattleMounts.csproj.CoreCompileInputs.cache
+E:\SteamLibrary\steamapps\common\RimWorld\Mods\battlemounts\v1.1\Source\BattleMounts\obj\Debug\BattleMounts.csproj.CopyComplete
+E:\SteamLibrary\steamapps\common\RimWorld\Mods\battlemounts\v1.1\Source\BattleMounts\obj\Debug\Battlemounts.dll
