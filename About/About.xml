@@ -19,7 +19,10 @@
       </li>
      
     </modDependencies>
-	
+    <loadAfter>
+	  <li>UnlimitedHugs.HugsLib</li>
+      <li>roolo.giddyupcore</li>
+    </loadAfter>
 		<packageId>roolo.giddyupbattlemounts</packageId>
 	<description> 
 Giddy-up! Let your pawns charge into battle with mounts. 
