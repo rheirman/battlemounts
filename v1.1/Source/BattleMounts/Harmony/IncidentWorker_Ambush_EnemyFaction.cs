@@ -24,7 +24,7 @@ namespace Battlemounts.Harmony
                 CodeInstruction instruction = instructionsList[i];
                 yield return instruction;
 
-                if (instructionsList[i].operand == AccessTools.Method(typeof(IncidentWorker_Ambush), "PostProcessGeneratedPawnsAfterSpawning")) //Identifier for which IL line to inject to
+                if (instructionsList[i].operand as MethodInfo == AccessTools.Method(typeof(IncidentWorker_Ambush), "PostProcessGeneratedPawnsAfterSpawning")) //Identifier for which IL line to inject to
 
                 {
                     yield return new CodeInstruction(OpCodes.Ldarga_S, 2);//load generated pawns as parameter

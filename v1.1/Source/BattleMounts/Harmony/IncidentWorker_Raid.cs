@@ -6,6 +6,7 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
 using Verse;
@@ -25,18 +26,18 @@ namespace Battlemounts.Harmony
             {
                 CodeInstruction instruction = instructionsList[i];
 
-                if(instruction.operand == AccessTools.Method(typeof(PawnsArrivalModeWorker), "Arrive"))
+                if(instruction.operand as MethodInfo == AccessTools.Method(typeof(PawnsArrivalModeWorker), "Arrive"))
                 {
                     yield return new CodeInstruction(OpCodes.Call, typeof(IncidentWorker_Raid_TryExecuteWorker).GetMethod("DoNothing"));//don't execute this, execute it in MountAnimals
                     continue;
                 }
-                if (instruction.operand == AccessTools.Method(typeof(PawnGroupMakerUtility), "GeneratePawns")) //Identifier for which IL line to inject to
+                if (instruction.operand as MethodInfo == AccessTools.Method(typeof(PawnGroupMakerUtility), "GeneratePawns")) //Identifier for which IL line to inject to
                 {
                     //Start of injection
                     yield return new CodeInstruction(OpCodes.Ldarg_1);//load incidentparms as parameter
                     yield return new CodeInstruction(OpCodes.Call, typeof(IncidentWorker_Raid_TryExecuteWorker).GetMethod("MountAnimals"));//replace GeneratePawns by custom code
                 }
-                else if (instructionsList[i].operand == AccessTools.Method(typeof(PlayerKnowledgeDatabase), "IsComplete")) //Prevent teaching about shieldbelts for animals
+                else if (instructionsList[i].operand as MethodInfo == AccessTools.Method(typeof(PlayerKnowledgeDatabase), "IsComplete")) //Prevent teaching about shieldbelts for animals
                 {
                     yield return new CodeInstruction(OpCodes.Call, typeof(IncidentWorker_Raid_TryExecuteWorker).GetMethod("ReturnTrue"));//Injected code
                 }

@@ -1,3 +1,4 @@
 *.vs
 Source/BattleMounts/.vs/*
 Source/BattleMounts/obj/*
+v1.1/Source/BattleMounts/obj/*

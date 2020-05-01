@@ -19,7 +19,7 @@ namespace BattleMounts.Harmony
     {
         static void Postfix(Vector3 clickPos, Pawn pawn, List<FloatMenuOption> opts)
         {
-            foreach (LocalTargetInfo current in GenUI.TargetsAt(clickPos, TargetingParameters.ForAttackHostile(), true))
+            foreach (LocalTargetInfo current in GenUI.TargetsAt_NewTemp(clickPos, TargetingParameters.ForAttackHostile(), true))
             {
                 if ((current.Thing is Pawn target) && target.RaceProps.Animal)
                 {
