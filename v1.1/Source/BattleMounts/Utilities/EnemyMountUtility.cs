@@ -10,11 +10,13 @@ using System.Linq;
 using System.Text;
 using Verse;
 using Verse.AI;
+using Multiplayer.API;
 
 namespace Battlemounts.Utilities
 {
     class EnemyMountUtility
     {
+        [SyncMethod]
         public static void mountAnimals(ref List<Pawn> list, IncidentParms parms)
         {
             if (list.Count == 0 || !(parms.raidArrivalMode == null || parms.raidArrivalMode == PawnsArrivalModeDefOf.EdgeWalkIn) || (parms.raidStrategy != null && parms.raidStrategy.workerClass == typeof(RaidStrategyWorker_Siege)))
