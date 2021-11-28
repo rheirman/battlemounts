@@ -19,7 +19,11 @@ namespace Battlemounts.Utilities
         [SyncMethod]
         public static void mountAnimals(ref List<Pawn> list, IncidentParms parms)
         {
-            if (list.Count == 0 || !(parms.raidArrivalMode == null || parms.raidArrivalMode == PawnsArrivalModeDefOf.EdgeWalkIn) || (parms.raidStrategy != null && parms.raidStrategy.workerClass == typeof(RaidStrategyWorker_Siege)))
+            if (list.Count == 0 
+                || !(parms.raidArrivalMode == null 
+                || parms.raidArrivalMode == PawnsArrivalModeDefOf.EdgeWalkIn)
+                || parms.raidArrivalMode == BM_PawnsArrivalModeDefOf.EdgeWalkinGroups
+                || (parms.raidStrategy != null && parms.raidStrategy.workerClass == typeof(RaidStrategyWorker_Siege)))
             {
                 return;
             }
@@ -34,5 +38,10 @@ namespace Battlemounts.Utilities
             }
             
         }
+    }
+    [DefOf]
+    public static class BM_PawnsArrivalModeDefOf
+    {
+        public static PawnsArrivalModeDef EdgeWalkinGroups;
     }
 }
